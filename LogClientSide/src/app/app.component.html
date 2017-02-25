@@ -1,0 +1,10 @@
+<md-toolbar color="primary">
+    <md-menu #appMenu="mdMenu">
+        <button md-menu-item routerLink="/application-insight" routerLinkActive="active"><md-icon>trending_up</md-icon> Application Insight</button>
+        <button md-menu-item routerLink="/jsnlog" routerLinkActive="active"><md-icon>line_style</md-icon> JSNLog</button>
+    </md-menu>
+    <button md-icon-button [mdMenuTriggerFor]="appMenu">
+        <md-icon>more_vert</md-icon>
+    </button>
+</md-toolbar>
+<router-outlet></router-outlet>

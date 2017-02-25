@@ -1,0 +1,51 @@
+<div layout="row" layout-align="center center">
+    <h3>JSNlog</h3>
+    
+
+    <md-card>
+        <md-card-title>Asp Net Core</md-card-title>
+        <md-card-content>
+            <button md-raised-button color="primary" (click)="coreDebug()">Debug</button>
+            <button md-raised-button color="accent" (click)="coreInfo()">Information</button>
+            <button md-button color="primary" (click)="coreError()">Error</button>
+        </md-card-content>
+    </md-card>
+
+    <md-card>
+        <md-card-title>Products</md-card-title>
+        <md-card-content>
+            <table class="table table-striped" [mfData]="data" #mf="mfDataTable" [mfRowsOnPage]="rowsOnPage" [mfActivePage]="activePage"
+                [(mfAmountOfRows)]="itemsTotal" (mfOnPageChange)="onPageChange($event)">
+                <thead>
+                    <tr>
+                        <th style="width: 25%">
+                            <mfDefaultSorter by="name">Name</mfDefaultSorter>
+                        </th>
+                        <th style="width: 40%">
+                            <mfDefaultSorter by="description">Description</mfDefaultSorter>
+                        </th>
+                        <th style="width: 10%">
+                            <mfDefaultSorter by="price">Price</mfDefaultSorter>
+                        </th>
+                        <th style="width: 25%">
+                            <mfDefaultSorter by="available">Available</mfDefaultSorter>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of mf.data">
+                        <td>{{item.name}}</td>
+                        <td>{{item.description}}</td>
+                        <td>{{item.price}}</td>
+                        <td><md-checkbox [(ngModel)]="item.available"></md-checkbox></td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="4"><mfBootstrapPaginator [rowsOnPageSet]="[5,10,15]"></mfBootstrapPaginator></td>
+                    </tr>
+                </tfoot>
+                </table>
+        </md-card-content>
+    </md-card>
+</div>
