@@ -3,6 +3,7 @@ import { ApplicationInsightComponent } from './application-insight/application-i
 /* import AppInsights */
 import { AppInsights } from "applicationinsights-js";
 import { JSNlogComponent } from './jsnlog/jsnlog.component';
+import { UserComponent } from './user/user.component';
 
 @Component({
   selector: 'app-root',

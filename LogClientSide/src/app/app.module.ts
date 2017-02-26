@@ -14,9 +14,11 @@ import { JSNlogComponent } from './jsnlog/jsnlog.component';
 
 import { JSLoggerService } from './jslogger.service';
 import { ProductService} from './product.service';
+import { UserService } from './user.service';
 import { HttpSpinnerComponent } from './http-spinner/http-spinner.component';
 
 import { FileDropDirective, FileUploader } from 'ng2-file-upload';
+import { UserComponent } from './user/user.component';
 
 
 const appRoutes: Routes = [
@@ -30,7 +32,8 @@ const appRoutes: Routes = [
     ApplicationInsightComponent,
     JSNlogComponent,
     HttpSpinnerComponent,
-    FileDropDirective
+    FileDropDirective,
+    UserComponent
   ],
   entryComponents: [
     HttpSpinnerComponent
@@ -44,7 +47,7 @@ const appRoutes: Routes = [
     DataTableModule,
     MaterialModule.forRoot()
 	],
-  providers: [JSLoggerService, ProductService],
+  providers: [JSLoggerService, ProductService, UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

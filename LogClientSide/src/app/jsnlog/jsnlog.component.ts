@@ -7,7 +7,7 @@ import { Product } from '../Models/Product';
 import { PaginationData } from '../Models/PaginationData';
 import { HttpSpinnerComponent } from '../http-spinner/http-spinner.component';
 import { FileDropDirective, FileUploader, FileItem, ParsedResponseHeaders } from 'ng2-file-upload';
-
+import { UserService } from '../user.service';
 
 @Component({
     selector: 'app-jsnlog',
@@ -24,7 +24,7 @@ export class JSNlogComponent implements OnInit {
     public hasBaseDropZoneOver: boolean = false;
     public hasAnotherDropZoneOver: boolean = false;
 
-    constructor(private log: JSLoggerService, private _productService: ProductService, public snackBar: MdSnackBar, public dialog: MdDialog) {
+    constructor(private log: JSLoggerService, private _productService: ProductService, private _userService: UserService, public snackBar: MdSnackBar, public dialog: MdDialog) {
         this.uploader = new FileUploader({ url: "/api/upload", disableMultipart: false });
         this.uploader.onAfterAddingFile = this.onAfterAddingFile.bind(this);
         this.uploader.onBeforeUploadItem = this.onBeforeUploadItem.bind(this);
@@ -52,7 +52,7 @@ export class JSNlogComponent implements OnInit {
     public onPageChange(event) {
         this.rowsOnPage = event.rowsOnPage;
         this.activePage = event.activePage;
-        this.getProducts();
+        this.getProducts();       
     }
 
     public fileOverBase(e: any): void {
