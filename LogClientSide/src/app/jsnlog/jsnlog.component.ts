@@ -26,10 +26,10 @@ export class JSNlogComponent implements OnInit {
 
     constructor(private log: JSLoggerService, private _productService: ProductService, public snackBar: MdSnackBar, public dialog: MdDialog) {
         this.uploader = new FileUploader({ url: "/api/upload", disableMultipart: false });
-        this.uploader.onAfterAddingFile = this.onAfterAddingFile;
-        this.uploader.onBeforeUploadItem = this.onBeforeUploadItem;
-        this.uploader.onErrorItem = this.onErrorItem;
-        this.uploader.onCompleteItem = this.onCompleteItem;
+        this.uploader.onAfterAddingFile = this.onAfterAddingFile.bind(this);
+        this.uploader.onBeforeUploadItem = this.onBeforeUploadItem.bind(this);
+        this.uploader.onErrorItem = this.onErrorItem.bind(this);
+        this.uploader.onCompleteItem = this.onCompleteItem.bind(this);
     }
 
     ngOnInit() {

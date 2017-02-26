@@ -80,7 +80,7 @@
                     <tr>
                         <td colspan="3">
                              Progresso della coda:
-                            <div class="progress" style="">
+                            <div class="progress">
                                 <div class="progress-bar" role="progressbar" [ngStyle]="{ 'width': uploader.progress + '%' }"></div>
                             </div>
                         </td>
@@ -95,7 +95,7 @@
     <md-card>
         <md-card-title>Products</md-card-title>
         <md-card-content>
-            <table class="table table-striped" [mfData]="data" #mf="mfDataTable" [mfRowsOnPage]="rowsOnPage" [mfActivePage]="activePage"
+            <table class="table table-striped" [mfData]="products.data" #mf="mfDataTable" [mfRowsOnPage]="rowsOnPage" [mfActivePage]="activePage"
                 [(mfAmountOfRows)]="products.totalItems" (mfOnPageChange)="onPageChange($event)">
                 <thead>
                     <tr>
