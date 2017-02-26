@@ -29,8 +29,8 @@ namespace LogClientSide.Controllers
                     }
                 }
             }
-            var filename = Request.Headers.FirstOrDefault(x => x.Key == "Content-Disposition");
-            string path = Path.Combine(Path.GetTempPath(), filename.Value);
+            var filename = form.Files.FirstOrDefault().FileName;
+            string path = Path.Combine(Path.GetTempPath(), filename);
             System.IO.File.WriteAllBytes(path, fileResult.ToArray());
 
             return Ok();

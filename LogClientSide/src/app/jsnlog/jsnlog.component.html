@@ -1,6 +1,26 @@
+<style>
+    .my-drop-zone {
+        border: dotted 3px lightgray;
+    }
+    
+    .nv-file-over {
+        border: dotted 3px red;
+    }
+    /* Default class applied to drop zones on over */
+    
+    .another-file-over-class {
+        border: dotted 3px green;
+    }
+    
+    html,
+    body {
+        height: 100%;
+    }
+</style>
+
 <div layout="row" layout-align="center center">
     <h3>JSNlog</h3>
-    
+
 
     <md-card>
         <md-card-title>Asp Net Core</md-card-title>
@@ -11,11 +31,72 @@
         </md-card-content>
     </md-card>
 
+    <br>
+     <div class="row">
+        <div class="col-md-3">
+            <div ng2FileDrop [ngClass]="{'nv-file-over': hasBaseDropZoneOver}" (fileOver)="fileOverBase($event)" [uploader]="uploader"
+                class="well my-drop-zone">
+                Carica singolo file
+            </div>
+        </div>
+        <div class="col-md-9" style="margin-bottom: 40px">
+            <p>Elementi in coda: {{ uploader?.queue?.length }}</p>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th width="50%">Name</th>
+                        <th>Size</th>
+                        <th>Progress</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of uploader.queue">
+                        <td><strong>{{ item?.file?.name }}</strong></td>
+                        <td *ngIf="uploader.isHTML5" nowrap>{{ item?.file?.size/1024/1024 | number:'.2' }} MB</td>
+                        <td *ngIf="uploader.isHTML5">
+                            <div class="progress" style="margin-bottom: 0;">
+                                <div class="progress-bar" role="progressbar" [ngStyle]="{ 'width': item.progress + '%' }"></div>
+                            </div>
+                        </td>
+                        <td class="text-center">
+                            <span *ngIf="item.isSuccess"><i class="glyphicon glyphicon-ok"></i></span>
+                            <span *ngIf="item.isCancel"><i class="glyphicon glyphicon-ban-circle"></i></span>
+                            <span *ngIf="item.isError"><i class="glyphicon glyphicon-remove"></i></span>
+                        </td>
+                        <td nowrap>
+                            <button type="button" class="btn btn-success btn-xs" (click)="item.upload()" [disabled]="item.isReady || item.isUploading || item.isSuccess">
+                                    <span class="glyphicon glyphicon-upload"></span> Upload
+                                </button>
+                            <button type="button" class="btn btn-warning btn-xs" (click)="item.cancel()" [disabled]="!item.isUploading">
+                                    <span class="glyphicon glyphicon-ban-circle"></span> Cancel
+                                </button>
+                            <button type="button" class="btn btn-danger btn-xs" (click)="item.remove()">
+                                    <span class="glyphicon glyphicon-trash"></span> Remove
+                                </button>
+                        </td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="3">
+                             Progresso della coda:
+                            <div class="progress" style="">
+                                <div class="progress-bar" role="progressbar" [ngStyle]="{ 'width': uploader.progress + '%' }"></div>
+                            </div>
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+     </div>
+
+    <br>
+
     <md-card>
         <md-card-title>Products</md-card-title>
         <md-card-content>
             <table class="table table-striped" [mfData]="data" #mf="mfDataTable" [mfRowsOnPage]="rowsOnPage" [mfActivePage]="activePage"
-                [(mfAmountOfRows)]="itemsTotal" (mfOnPageChange)="onPageChange($event)">
+                [(mfAmountOfRows)]="products.totalItems" (mfOnPageChange)="onPageChange($event)">
                 <thead>
                     <tr>
                         <th style="width: 25%">
@@ -37,12 +118,16 @@
                         <td>{{item.name}}</td>
                         <td>{{item.description}}</td>
                         <td>{{item.price}}</td>
-                        <td><md-checkbox [(ngModel)]="item.available"></md-checkbox></td>
+                        <td>
+                            <md-checkbox [(ngModel)]="item.available"></md-checkbox>
+                        </td>
                     </tr>
                 </tbody>
                 <tfoot>
                     <tr>
-                        <td colspan="4"><mfBootstrapPaginator [rowsOnPageSet]="[5,10,15]"></mfBootstrapPaginator></td>
+                        <td colspan="4">
+                            <mfBootstrapPaginator [rowsOnPageSet]="[5,10,15]"></mfBootstrapPaginator>
+                        </td>
                     </tr>
                 </tfoot>
                 </table>

@@ -27,7 +27,6 @@ export class ProductService
     }
 
     private createPaginationData(res: Response) {
-        debugger
         let body = res.json();
         var paginationData = new PaginationData<Product>(body.data, body.totalItems)
         return paginationData || { };

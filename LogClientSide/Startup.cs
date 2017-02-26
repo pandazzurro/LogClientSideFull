@@ -57,10 +57,6 @@ namespace LogClientSide
         public void ConfigureSerilog()
         {
             CloudStorageAccount storageAccount = CloudStorageAccount.Parse("UseDevelopmentStorage=true");
-            //CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
-            //CloudTable table = tableClient.GetTableReference("Corelogger");
-            //table.CreateIfNotExistsAsync().Wait();
-
             Log.Logger = new LoggerConfiguration()
                 .Destructure.ToMaximumDepth(10)
                 .MinimumLevel.Is(Serilog.Events.LogEventLevel.Verbose)

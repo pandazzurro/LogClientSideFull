@@ -10,7 +10,6 @@ export class HttpSpinnerComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    debugger
   }
 
 }

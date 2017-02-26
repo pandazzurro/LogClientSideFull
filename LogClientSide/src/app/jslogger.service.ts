@@ -2,24 +2,23 @@ import { Injectable } from '@angular/core';
 import { JL } from 'jsnlog';
 
 @Injectable()
-export class JSLoggerService
-{
-    logger: JL.JSNLogLogger;
+export class JSLoggerService {
+  logger: JL.JSNLogLogger;
 
-    constructor()
-    {
-        this.logger = JL();
-    }
+  constructor() {
+    // Remap EndPoint
+    this.logger = JL();
+  }
 
-    coreDebug(msg: string) {
-		this.logger.debug(msg);
-    }
+  Debug(logObject: any) {
+    this.logger.debug(logObject);
+  }
 
-    coreInfo(msg: string) {
-		this.logger.info(msg);
-    }
+  Info(logObject: any) {
+    this.logger.info(logObject);
+  }
 
-    coreError(msg: string) {
-		this.logger.error(msg);
-    }	
+  Error(logObject: any) {
+    this.logger.error(logObject);
+  }
 }

@@ -16,6 +16,8 @@ import { JSLoggerService } from './jslogger.service';
 import { ProductService} from './product.service';
 import { HttpSpinnerComponent } from './http-spinner/http-spinner.component';
 
+import { FileDropDirective, FileUploader } from 'ng2-file-upload';
+
 
 const appRoutes: Routes = [
   { path: 'application-insight', component: ApplicationInsightComponent },
@@ -27,7 +29,8 @@ const appRoutes: Routes = [
     AppComponent,
     ApplicationInsightComponent,
     JSNlogComponent,
-    HttpSpinnerComponent
+    HttpSpinnerComponent,
+    FileDropDirective
   ],
   entryComponents: [
     HttpSpinnerComponent

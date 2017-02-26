@@ -1,6 +1,6 @@
 webpackJsonp([0,3],{
 
-/***/ 1224:
+/***/ 1232:
 /***/ function(module, exports) {
 
 function webpackEmptyContext(req) {
@@ -9,20 +9,36 @@ function webpackEmptyContext(req) {
 webpackEmptyContext.keys = function() { return []; };
 webpackEmptyContext.resolve = webpackEmptyContext;
 module.exports = webpackEmptyContext;
-webpackEmptyContext.id = 1224;
+webpackEmptyContext.id = 1232;
 
 
 /***/ },
 
-/***/ 1225:
+/***/ 1233:
 /***/ function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(617);
+module.exports = __webpack_require__(623);
 
 
 /***/ },
 
 /***/ 482:
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return PaginationData; });
+var PaginationData = (function () {
+    function PaginationData(data, totalItems) {
+        this.data = data;
+        this.totalItems = totalItems;
+    }
+    return PaginationData;
+}());
+//# sourceMappingURL=E:/Progetti/GitHub/LogClientSideFull/LogClientSide/src/PaginationData.js.map
+
+/***/ },
+
+/***/ 483:
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -42,13 +58,12 @@ var HttpSpinnerComponent = (function () {
     function HttpSpinnerComponent() {
     }
     HttpSpinnerComponent.prototype.ngOnInit = function () {
-        debugger;
     };
     HttpSpinnerComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-http-spinner',
-            template: __webpack_require__(970),
-            styles: [__webpack_require__(966)]
+            template: __webpack_require__(978),
+            styles: [__webpack_require__(974)]
         }), 
         __metadata('design:paramtypes', [])
     ], HttpSpinnerComponent);
@@ -58,12 +73,12 @@ var HttpSpinnerComponent = (function () {
 
 /***/ },
 
-/***/ 483:
+/***/ 484:
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_jsnlog__ = __webpack_require__(938);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_jsnlog__ = __webpack_require__(943);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_jsnlog___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_jsnlog__);
 /* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return JSLoggerService; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -79,16 +94,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 var JSLoggerService = (function () {
     function JSLoggerService() {
+        // Remap EndPoint
         this.logger = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_jsnlog__["JL"])();
     }
-    JSLoggerService.prototype.coreDebug = function (msg) {
-        this.logger.debug(msg);
+    JSLoggerService.prototype.Debug = function (logObject) {
+        this.logger.debug(logObject);
     };
-    JSLoggerService.prototype.coreInfo = function (msg) {
-        this.logger.info(msg);
+    JSLoggerService.prototype.Info = function (logObject) {
+        this.logger.info(logObject);
     };
-    JSLoggerService.prototype.coreError = function (msg) {
-        this.logger.error(msg);
+    JSLoggerService.prototype.Error = function (logObject) {
+        this.logger.error(logObject);
     };
     JSLoggerService = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(), 
@@ -100,7 +116,7 @@ var JSLoggerService = (function () {
 
 /***/ },
 
-/***/ 484:
+/***/ 485:
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -112,7 +128,7 @@ var JSLoggerService = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_catch___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_catch__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map__ = __webpack_require__(89);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__Models_PaginationData__ = __webpack_require__(776);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__Models_PaginationData__ = __webpack_require__(482);
 /* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return ProductService; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -142,7 +158,6 @@ var ProductService = (function () {
     ProductService.prototype.getProduct = function (productId) {
     };
     ProductService.prototype.createPaginationData = function (res) {
-        debugger;
         var body = res.json();
         var paginationData = new __WEBPACK_IMPORTED_MODULE_5__Models_PaginationData__["a" /* PaginationData */](body.data, body.totalItems);
         return paginationData || {};
@@ -171,7 +186,7 @@ var ProductService = (function () {
 
 /***/ },
 
-/***/ 616:
+/***/ 622:
 /***/ function(module, exports) {
 
 function webpackEmptyContext(req) {
@@ -180,21 +195,21 @@ function webpackEmptyContext(req) {
 webpackEmptyContext.keys = function() { return []; };
 webpackEmptyContext.resolve = webpackEmptyContext;
 module.exports = webpackEmptyContext;
-webpackEmptyContext.id = 616;
+webpackEmptyContext.id = 622;
 
 
 /***/ },
 
-/***/ 617:
+/***/ 623:
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__polyfills_ts__ = __webpack_require__(782);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__polyfills_ts__ = __webpack_require__(787);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__polyfills_ts___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__polyfills_ts__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dynamic__ = __webpack_require__(746);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dynamic__ = __webpack_require__(752);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__environments_environment__ = __webpack_require__(781);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_app_module__ = __webpack_require__(778);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__environments_environment__ = __webpack_require__(786);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_app_module__ = __webpack_require__(783);
 
 
 
@@ -208,23 +223,7 @@ __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dyna
 
 /***/ },
 
-/***/ 776:
-/***/ function(module, exports, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return PaginationData; });
-var PaginationData = (function () {
-    function PaginationData(data, totalItems) {
-        this.data = data;
-        this.totalItems = totalItems;
-    }
-    return PaginationData;
-}());
-//# sourceMappingURL=E:/Progetti/GitHub/LogClientSideFull/LogClientSide/src/PaginationData.js.map
-
-/***/ },
-
-/***/ 777:
+/***/ 782:
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -248,8 +247,8 @@ var AppComponent = (function () {
     AppComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-root',
-            template: __webpack_require__(968),
-            styles: [__webpack_require__(964)]
+            template: __webpack_require__(976),
+            styles: [__webpack_require__(972)]
         }), 
         __metadata('design:paramtypes', [])
     ], AppComponent);
@@ -259,7 +258,7 @@ var AppComponent = (function () {
 
 /***/ },
 
-/***/ 778:
+/***/ 783:
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -268,16 +267,18 @@ var AppComponent = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(17);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(178);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_material__ = __webpack_require__(189);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_router__ = __webpack_require__(766);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_ng2_bootstrap__ = __webpack_require__(947);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_angular2_serverpagination_datatable__ = __webpack_require__(783);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_router__ = __webpack_require__(772);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_ng2_bootstrap__ = __webpack_require__(952);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_angular2_serverpagination_datatable__ = __webpack_require__(788);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_angular2_serverpagination_datatable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_angular2_serverpagination_datatable__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__app_component__ = __webpack_require__(777);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__application_insight_application_insight_component__ = __webpack_require__(779);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__jsnlog_jsnlog_component__ = __webpack_require__(780);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__jslogger_service__ = __webpack_require__(483);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__product_service__ = __webpack_require__(484);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__http_spinner_http_spinner_component__ = __webpack_require__(482);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__app_component__ = __webpack_require__(782);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__application_insight_application_insight_component__ = __webpack_require__(784);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__jsnlog_jsnlog_component__ = __webpack_require__(785);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__jslogger_service__ = __webpack_require__(484);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__product_service__ = __webpack_require__(485);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__http_spinner_http_spinner_component__ = __webpack_require__(483);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14_ng2_file_upload__ = __webpack_require__(584);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14_ng2_file_upload___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_14_ng2_file_upload__);
 /* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return AppModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -288,6 +289,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+
 
 
 
@@ -315,7 +317,8 @@ var AppModule = (function () {
                 __WEBPACK_IMPORTED_MODULE_8__app_component__["a" /* AppComponent */],
                 __WEBPACK_IMPORTED_MODULE_9__application_insight_application_insight_component__["a" /* ApplicationInsightComponent */],
                 __WEBPACK_IMPORTED_MODULE_10__jsnlog_jsnlog_component__["a" /* JSNlogComponent */],
-                __WEBPACK_IMPORTED_MODULE_13__http_spinner_http_spinner_component__["a" /* HttpSpinnerComponent */]
+                __WEBPACK_IMPORTED_MODULE_13__http_spinner_http_spinner_component__["a" /* HttpSpinnerComponent */],
+                __WEBPACK_IMPORTED_MODULE_14_ng2_file_upload__["FileDropDirective"]
             ],
             entryComponents: [
                 __WEBPACK_IMPORTED_MODULE_13__http_spinner_http_spinner_component__["a" /* HttpSpinnerComponent */]
@@ -340,12 +343,12 @@ var AppModule = (function () {
 
 /***/ },
 
-/***/ 779:
+/***/ 784:
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_applicationinsights_js__ = __webpack_require__(785);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_applicationinsights_js__ = __webpack_require__(790);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_applicationinsights_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_applicationinsights_js__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_material__ = __webpack_require__(189);
 /* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return ApplicationInsightComponent; });
@@ -405,8 +408,8 @@ var ApplicationInsightComponent = (function () {
     ApplicationInsightComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-application-insight',
-            template: __webpack_require__(969),
-            styles: [__webpack_require__(965)]
+            template: __webpack_require__(977),
+            styles: [__webpack_require__(973)]
         }), 
         __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__angular_material__["MdSnackBar"] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__angular_material__["MdSnackBar"]) === 'function' && _a) || Object])
     ], ApplicationInsightComponent);
@@ -417,15 +420,18 @@ var ApplicationInsightComponent = (function () {
 
 /***/ },
 
-/***/ 780:
+/***/ 785:
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__jslogger_service__ = __webpack_require__(483);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__jslogger_service__ = __webpack_require__(484);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_material__ = __webpack_require__(189);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__product_service__ = __webpack_require__(484);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__http_spinner_http_spinner_component__ = __webpack_require__(482);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__product_service__ = __webpack_require__(485);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__Models_PaginationData__ = __webpack_require__(482);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__http_spinner_http_spinner_component__ = __webpack_require__(483);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_ng2_file_upload__ = __webpack_require__(584);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_ng2_file_upload___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_ng2_file_upload__);
 /* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return JSNlogComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -442,28 +448,35 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
+
 var JSNlogComponent = (function () {
-    function JSNlogComponent(_jsnlog, _productService, snackBar, dialog) {
-        this._jsnlog = _jsnlog;
+    function JSNlogComponent(log, _productService, snackBar, dialog) {
+        this.log = log;
         this._productService = _productService;
         this.snackBar = snackBar;
         this.dialog = dialog;
-        this.itemsTotal = 0;
+        this.products = new __WEBPACK_IMPORTED_MODULE_4__Models_PaginationData__["a" /* PaginationData */](new Array(), 0);
         this.rowsOnPage = 10;
         this.activePage = 1;
+        this.hasBaseDropZoneOver = false;
+        this.hasAnotherDropZoneOver = false;
+        this.uploader = new __WEBPACK_IMPORTED_MODULE_6_ng2_file_upload__["FileUploader"]({ url: "/api/upload", disableMultipart: false });
+        this.uploader.onAfterAddingFile = this.onAfterAddingFile;
+        this.uploader.onBeforeUploadItem = this.onBeforeUploadItem;
+        this.uploader.onErrorItem = this.onErrorItem;
+        this.uploader.onCompleteItem = this.onCompleteItem;
     }
     JSNlogComponent.prototype.ngOnInit = function () {
         this.getProducts();
     };
     JSNlogComponent.prototype.getProducts = function () {
         var _this = this;
-        debugger;
-        this.dialog.open(__WEBPACK_IMPORTED_MODULE_4__http_spinner_http_spinner_component__["a" /* HttpSpinnerComponent */]);
+        this.dialog.open(__WEBPACK_IMPORTED_MODULE_5__http_spinner_http_spinner_component__["a" /* HttpSpinnerComponent */]);
         var skip = this.rowsOnPage * (this.activePage - 1);
         this._productService.getProducts(skip, this.rowsOnPage)
             .subscribe(function (products) {
-            _this.data = products.data;
-            _this.itemsTotal = products.totalItems;
+            _this.products = products;
             _this.dialog.closeAll();
         }, function (error) { return _this.errorMessage = error; });
     };
@@ -472,23 +485,45 @@ var JSNlogComponent = (function () {
         this.activePage = event.activePage;
         this.getProducts();
     };
+    JSNlogComponent.prototype.fileOverBase = function (e) {
+        this.hasBaseDropZoneOver = e;
+    };
+    JSNlogComponent.prototype.fileOverAnother = function (e) {
+        this.hasAnotherDropZoneOver = e;
+    };
+    JSNlogComponent.prototype.onAfterAddingFile = function (fileItem) {
+        debugger;
+        this.log.Debug({ msg: "Adding File", file: fileItem.file });
+    };
+    JSNlogComponent.prototype.onBeforeUploadItem = function (fileItem) {
+        debugger;
+        this.log.Debug({ msg: "Before File", file: fileItem.file });
+    };
+    JSNlogComponent.prototype.onCompleteItem = function (fileItem) {
+        debugger;
+        this.log.Debug({ msg: "Complete File", file: fileItem.file });
+    };
+    JSNlogComponent.prototype.onErrorItem = function (item, response, status, headers) {
+        debugger;
+        this.log.Debug({ msg: "Error File", file: item.file });
+    };
     JSNlogComponent.prototype.coreDebug = function () {
-        this._jsnlog.coreDebug("asp net core Debug");
+        this.log.Debug("asp net core Debug");
         this.snackBar.open("asp net core Debug", "coreDebug", { duration: 2000 });
     };
     JSNlogComponent.prototype.coreInfo = function () {
-        this._jsnlog.coreInfo("asp net core Info");
+        this.log.Info("asp net core Info");
         this.snackBar.open("asp net core Info", "coreInfo", { duration: 2000 });
     };
     JSNlogComponent.prototype.coreError = function () {
-        this._jsnlog.coreError("asp net core Error");
+        this.log.Error("asp net core Error");
         this.snackBar.open("asp net core Error", "coreError", { duration: 2000 });
     };
     JSNlogComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-jsnlog',
-            template: __webpack_require__(971),
-            styles: [__webpack_require__(967)]
+            template: __webpack_require__(979),
+            styles: [__webpack_require__(975)]
         }), 
         __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__jslogger_service__["a" /* JSLoggerService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__jslogger_service__["a" /* JSLoggerService */]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__product_service__["a" /* ProductService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_3__product_service__["a" /* ProductService */]) === 'function' && _b) || Object, (typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__angular_material__["MdSnackBar"] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__angular_material__["MdSnackBar"]) === 'function' && _c) || Object, (typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2__angular_material__["MdDialog"] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__angular_material__["MdDialog"]) === 'function' && _d) || Object])
     ], JSNlogComponent);
@@ -499,7 +534,7 @@ var JSNlogComponent = (function () {
 
 /***/ },
 
-/***/ 781:
+/***/ 786:
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -515,43 +550,43 @@ var environment = {
 
 /***/ },
 
-/***/ 782:
+/***/ 787:
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_core_js_es6_symbol__ = __webpack_require__(799);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_core_js_es6_symbol__ = __webpack_require__(804);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_core_js_es6_symbol___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_core_js_es6_symbol__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_core_js_es6_object__ = __webpack_require__(792);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_core_js_es6_object__ = __webpack_require__(797);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_core_js_es6_object___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_core_js_es6_object__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_core_js_es6_function__ = __webpack_require__(788);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_core_js_es6_function__ = __webpack_require__(793);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_core_js_es6_function___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_core_js_es6_function__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_core_js_es6_parse_int__ = __webpack_require__(794);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_core_js_es6_parse_int__ = __webpack_require__(799);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_core_js_es6_parse_int___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_core_js_es6_parse_int__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_core_js_es6_parse_float__ = __webpack_require__(793);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_core_js_es6_parse_float__ = __webpack_require__(798);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_core_js_es6_parse_float___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_core_js_es6_parse_float__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_core_js_es6_number__ = __webpack_require__(791);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_core_js_es6_number__ = __webpack_require__(796);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_core_js_es6_number___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_core_js_es6_number__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_core_js_es6_math__ = __webpack_require__(790);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_core_js_es6_math__ = __webpack_require__(795);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_core_js_es6_math___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_core_js_es6_math__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_core_js_es6_string__ = __webpack_require__(798);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_core_js_es6_string__ = __webpack_require__(803);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_core_js_es6_string___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_core_js_es6_string__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_core_js_es6_date__ = __webpack_require__(787);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_core_js_es6_date__ = __webpack_require__(792);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_core_js_es6_date___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8_core_js_es6_date__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_core_js_es6_array__ = __webpack_require__(786);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_core_js_es6_array__ = __webpack_require__(791);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_core_js_es6_array___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9_core_js_es6_array__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_core_js_es6_regexp__ = __webpack_require__(796);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_core_js_es6_regexp__ = __webpack_require__(801);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_core_js_es6_regexp___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10_core_js_es6_regexp__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11_core_js_es6_map__ = __webpack_require__(789);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11_core_js_es6_map__ = __webpack_require__(794);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11_core_js_es6_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_11_core_js_es6_map__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12_core_js_es6_set__ = __webpack_require__(797);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12_core_js_es6_set__ = __webpack_require__(802);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12_core_js_es6_set___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_12_core_js_es6_set__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13_core_js_es6_reflect__ = __webpack_require__(795);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13_core_js_es6_reflect__ = __webpack_require__(800);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13_core_js_es6_reflect___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_13_core_js_es6_reflect__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14_core_js_es7_reflect__ = __webpack_require__(800);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14_core_js_es7_reflect__ = __webpack_require__(805);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14_core_js_es7_reflect___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_14_core_js_es7_reflect__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15_zone_js_dist_zone__ = __webpack_require__(1223);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15_zone_js_dist_zone__ = __webpack_require__(1231);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15_zone_js_dist_zone___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_15_zone_js_dist_zone__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16_hammerjs_hammer__ = __webpack_require__(937);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16_hammerjs_hammer__ = __webpack_require__(942);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16_hammerjs_hammer___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_16_hammerjs_hammer__);
 
 
@@ -574,61 +609,61 @@ var environment = {
 
 /***/ },
 
-/***/ 964:
+/***/ 972:
 /***/ function(module, exports) {
 
 module.exports = ""
 
 /***/ },
 
-/***/ 965:
+/***/ 973:
 /***/ function(module, exports) {
 
 module.exports = ""
 
 /***/ },
 
-/***/ 966:
+/***/ 974:
 /***/ function(module, exports) {
 
 module.exports = ""
 
 /***/ },
 
-/***/ 967:
+/***/ 975:
 /***/ function(module, exports) {
 
 module.exports = ""
 
 /***/ },
 
-/***/ 968:
+/***/ 976:
 /***/ function(module, exports) {
 
 module.exports = "<md-toolbar color=\"primary\">\n    <md-menu #appMenu=\"mdMenu\">\n        <button md-menu-item routerLink=\"/application-insight\" routerLinkActive=\"active\"><md-icon>trending_up</md-icon> Application Insight</button>\n        <button md-menu-item routerLink=\"/jsnlog\" routerLinkActive=\"active\"><md-icon>line_style</md-icon> JSNLog</button>\n    </md-menu>\n    <button md-icon-button [mdMenuTriggerFor]=\"appMenu\">\n        <md-icon>more_vert</md-icon>\n    </button>\n</md-toolbar>\n<router-outlet></router-outlet>"
 
 /***/ },
 
-/***/ 969:
+/***/ 977:
 /***/ function(module, exports) {
 
 module.exports = "<h3>\n  Application Insight\n</h3>\n\n<button md-raised-button color=\"primary\" (click)=\"pageView()\">pageView</button>\r\n<button md-raised-button color=\"accent\" (click)=\"sendEvent()\">Send Event</button>\n<button md-button color=\"primary\" (click)=\"sendTrace()\">Send Trace</button>\n<button md-fab color=\"warn\" (click)=\"sendException()\">Ex</button>\n"
 
 /***/ },
 
-/***/ 970:
+/***/ 978:
 /***/ function(module, exports) {
 
 module.exports = "<md-progress-circle [mode]=\"indeterminate\"></md-progress-circle>"
 
 /***/ },
 
-/***/ 971:
+/***/ 979:
 /***/ function(module, exports) {
 
-module.exports = "<div layout=\"row\" layout-align=\"center center\">\r\n    <h3>JSNlog</h3>\r\n    \r\n\r\n    <md-card>\r\n        <md-card-title>Asp Net Core</md-card-title>\r\n        <md-card-content>\r\n            <button md-raised-button color=\"primary\" (click)=\"coreDebug()\">Debug</button>\r\n            <button md-raised-button color=\"accent\" (click)=\"coreInfo()\">Information</button>\r\n            <button md-button color=\"primary\" (click)=\"coreError()\">Error</button>\r\n        </md-card-content>\r\n    </md-card>\r\n\r\n    <md-card>\r\n        <md-card-title>Products</md-card-title>\r\n        <md-card-content>\r\n            <table class=\"table table-striped\" [mfData]=\"data\" #mf=\"mfDataTable\" [mfRowsOnPage]=\"rowsOnPage\" [mfActivePage]=\"activePage\"\r\n                [(mfAmountOfRows)]=\"itemsTotal\" (mfOnPageChange)=\"onPageChange($event)\">\r\n                <thead>\r\n                    <tr>\r\n                        <th style=\"width: 25%\">\r\n                            <mfDefaultSorter by=\"name\">Name</mfDefaultSorter>\r\n                        </th>\r\n                        <th style=\"width: 40%\">\r\n                            <mfDefaultSorter by=\"description\">Description</mfDefaultSorter>\r\n                        </th>\r\n                        <th style=\"width: 10%\">\r\n                            <mfDefaultSorter by=\"price\">Price</mfDefaultSorter>\r\n                        </th>\r\n                        <th style=\"width: 25%\">\r\n                            <mfDefaultSorter by=\"available\">Available</mfDefaultSorter>\r\n                        </th>\r\n                    </tr>\r\n                </thead>\r\n                <tbody>\r\n                    <tr *ngFor=\"let item of mf.data\">\r\n                        <td>{{item.name}}</td>\r\n                        <td>{{item.description}}</td>\r\n                        <td>{{item.price}}</td>\r\n                        <td><md-checkbox [(ngModel)]=\"item.available\"></md-checkbox></td>\r\n                    </tr>\r\n                </tbody>\r\n                <tfoot>\r\n                    <tr>\r\n                        <td colspan=\"4\"><mfBootstrapPaginator [rowsOnPageSet]=\"[5,10,15]\"></mfBootstrapPaginator></td>\r\n                    </tr>\r\n                </tfoot>\r\n                </table>\r\n        </md-card-content>\r\n    </md-card>\r\n</div>"
+module.exports = "<style>\r\n    .my-drop-zone {\r\n        border: dotted 3px lightgray;\r\n    }\r\n    \r\n    .nv-file-over {\r\n        border: dotted 3px red;\r\n    }\r\n    /* Default class applied to drop zones on over */\r\n    \r\n    .another-file-over-class {\r\n        border: dotted 3px green;\r\n    }\r\n    \r\n    html,\r\n    body {\r\n        height: 100%;\r\n    }\r\n</style>\r\n\r\n<div layout=\"row\" layout-align=\"center center\">\r\n    <h3>JSNlog</h3>\r\n\r\n\r\n    <md-card>\r\n        <md-card-title>Asp Net Core</md-card-title>\r\n        <md-card-content>\r\n            <button md-raised-button color=\"primary\" (click)=\"coreDebug()\">Debug</button>\r\n            <button md-raised-button color=\"accent\" (click)=\"coreInfo()\">Information</button>\r\n            <button md-button color=\"primary\" (click)=\"coreError()\">Error</button>\r\n        </md-card-content>\r\n    </md-card>\r\n\r\n    <br>\r\n     <div class=\"row\">\r\n        <div class=\"col-md-3\">\r\n            <div ng2FileDrop [ngClass]=\"{'nv-file-over': hasBaseDropZoneOver}\" (fileOver)=\"fileOverBase($event)\" [uploader]=\"uploader\"\r\n                class=\"well my-drop-zone\">\r\n                Carica singolo file\r\n            </div>\r\n        </div>\r\n        <div class=\"col-md-9\" style=\"margin-bottom: 40px\">\r\n            <p>Elementi in coda: {{ uploader?.queue?.length }}</p>\r\n            <table class=\"table\">\r\n                <thead>\r\n                    <tr>\r\n                        <th width=\"50%\">Name</th>\r\n                        <th>Size</th>\r\n                        <th>Progress</th>\r\n                    </tr>\r\n                </thead>\r\n                <tbody>\r\n                    <tr *ngFor=\"let item of uploader.queue\">\r\n                        <td><strong>{{ item?.file?.name }}</strong></td>\r\n                        <td *ngIf=\"uploader.isHTML5\" nowrap>{{ item?.file?.size/1024/1024 | number:'.2' }} MB</td>\r\n                        <td *ngIf=\"uploader.isHTML5\">\r\n                            <div class=\"progress\" style=\"margin-bottom: 0;\">\r\n                                <div class=\"progress-bar\" role=\"progressbar\" [ngStyle]=\"{ 'width': item.progress + '%' }\"></div>\r\n                            </div>\r\n                        </td>\r\n                        <td class=\"text-center\">\r\n                            <span *ngIf=\"item.isSuccess\"><i class=\"glyphicon glyphicon-ok\"></i></span>\r\n                            <span *ngIf=\"item.isCancel\"><i class=\"glyphicon glyphicon-ban-circle\"></i></span>\r\n                            <span *ngIf=\"item.isError\"><i class=\"glyphicon glyphicon-remove\"></i></span>\r\n                        </td>\r\n                        <td nowrap>\r\n                            <button type=\"button\" class=\"btn btn-success btn-xs\" (click)=\"item.upload()\" [disabled]=\"item.isReady || item.isUploading || item.isSuccess\">\r\n                                    <span class=\"glyphicon glyphicon-upload\"></span> Upload\r\n                                </button>\r\n                            <button type=\"button\" class=\"btn btn-warning btn-xs\" (click)=\"item.cancel()\" [disabled]=\"!item.isUploading\">\r\n                                    <span class=\"glyphicon glyphicon-ban-circle\"></span> Cancel\r\n                                </button>\r\n                            <button type=\"button\" class=\"btn btn-danger btn-xs\" (click)=\"item.remove()\">\r\n                                    <span class=\"glyphicon glyphicon-trash\"></span> Remove\r\n                                </button>\r\n                        </td>\r\n                    </tr>\r\n                </tbody>\r\n                <tfoot>\r\n                    <tr>\r\n                        <td colspan=\"3\">\r\n                             Progresso della coda:\r\n                            <div class=\"progress\" style=\"\">\r\n                                <div class=\"progress-bar\" role=\"progressbar\" [ngStyle]=\"{ 'width': uploader.progress + '%' }\"></div>\r\n                            </div>\r\n                        </td>\r\n                    </tr>\r\n                </tfoot>\r\n            </table>\r\n        </div>\r\n     </div>\r\n\r\n    <br>\r\n\r\n    <md-card>\r\n        <md-card-title>Products</md-card-title>\r\n        <md-card-content>\r\n            <table class=\"table table-striped\" [mfData]=\"data\" #mf=\"mfDataTable\" [mfRowsOnPage]=\"rowsOnPage\" [mfActivePage]=\"activePage\"\r\n                [(mfAmountOfRows)]=\"products.totalItems\" (mfOnPageChange)=\"onPageChange($event)\">\r\n                <thead>\r\n                    <tr>\r\n                        <th style=\"width: 25%\">\r\n                            <mfDefaultSorter by=\"name\">Name</mfDefaultSorter>\r\n                        </th>\r\n                        <th style=\"width: 40%\">\r\n                            <mfDefaultSorter by=\"description\">Description</mfDefaultSorter>\r\n                        </th>\r\n                        <th style=\"width: 10%\">\r\n                            <mfDefaultSorter by=\"price\">Price</mfDefaultSorter>\r\n                        </th>\r\n                        <th style=\"width: 25%\">\r\n                            <mfDefaultSorter by=\"available\">Available</mfDefaultSorter>\r\n                        </th>\r\n                    </tr>\r\n                </thead>\r\n                <tbody>\r\n                    <tr *ngFor=\"let item of mf.data\">\r\n                        <td>{{item.name}}</td>\r\n                        <td>{{item.description}}</td>\r\n                        <td>{{item.price}}</td>\r\n                        <td>\r\n                            <md-checkbox [(ngModel)]=\"item.available\"></md-checkbox>\r\n                        </td>\r\n                    </tr>\r\n                </tbody>\r\n                <tfoot>\r\n                    <tr>\r\n                        <td colspan=\"4\">\r\n                            <mfBootstrapPaginator [rowsOnPageSet]=\"[5,10,15]\"></mfBootstrapPaginator>\r\n                        </td>\r\n                    </tr>\r\n                </tfoot>\r\n                </table>\r\n        </md-card-content>\r\n    </md-card>\r\n</div>"
 
 /***/ }
 
-},[1225]);
+},[1233]);
 //# sourceMappingURL=main.bundle.map
