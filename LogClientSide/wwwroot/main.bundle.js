@@ -761,7 +761,7 @@ module.exports = "<style>\r\n    .my-drop-zone {\r\n        border: dotted 3px l
 /***/ 983:
 /***/ function(module, exports) {
 
-module.exports = "<div class=\"row\">\n  <div class=\"col-xs-6 col-sm-6 col-md-6 col-lg-6\">\n      <md-input-container>\n        <input md-input placeholder=\"Username\" [(ngModel)]=\"UserService.Username\">\n      </md-input-container>\n  </div>\n  <div class=\"col-xs-6 col-sm-6 col-md-6 col-lg-6\">\n      <md-slide-toggle ng-checked=\"UserService.SexType\" (change)=\"changeSexType()\">{{Sesso}}</md-slide-toggle>        \n  </div>\n</div>"
+module.exports = "<div class=\"row\">\n  <div class=\"col-xs-6 col-sm-6 col-md-6 col-lg-6\">\n    <div class=\"text-center\">\n      <md-input-container>\n        <input md-input placeholder=\"Username\" [(ngModel)]=\"UserService.Username\">\n      </md-input-container>\n    </div>\n  </div>\n  <div class=\"col-xs-6 col-sm-6 col-md-6 col-lg-6\">\n    <div class=\"text-center\">\n      <md-slide-toggle ng-checked=\"UserService.SexType\" (change)=\"changeSexType()\">{{Sesso}}</md-slide-toggle> \n    </div>       \n  </div>\n</div>"
 
 /***/ }
 
