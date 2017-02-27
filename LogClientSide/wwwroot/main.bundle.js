@@ -511,6 +511,7 @@ var JSNlogComponent = (function () {
         this.uploader.onBeforeUploadItem = this.onBeforeUploadItem.bind(this);
         this.uploader.onErrorItem = this.onErrorItem.bind(this);
         this.uploader.onCompleteItem = this.onCompleteItem.bind(this);
+        this.log.Debug({ msg: "Visita del componente JSNLog", user: this._userService });
     }
     JSNlogComponent.prototype.ngOnInit = function () {
     };
@@ -552,10 +553,12 @@ var JSNlogComponent = (function () {
     JSNlogComponent.prototype.onBeforeUploadItem = function (fileItem) {
         this.snackBar.open("Il File" + fileItem.file.name + " si sta caricando", "Loading", { duration: 2000 });
         this.log.Debug({ msg: "Before File", file: fileItem.file, user: this._userService });
+        this.startUpload = Date.now();
     };
     JSNlogComponent.prototype.onCompleteItem = function (fileItem) {
+        this.stopUpload = Date.now();
         this.snackBar.open("Caricamento completato", "Ok", { duration: 2000 });
-        this.log.Debug({ msg: "Complete File", file: fileItem.file, user: this._userService });
+        this.log.Debug({ msg: "File caricato in " + (this.stopUpload - this.startUpload), file: fileItem.file, user: this._userService });
     };
     JSNlogComponent.prototype.onErrorItem = function (item, response, status, headers) {
         this.snackBar.open("Il File" + item.file.name + " non è stato caricato", "Error", { duration: 2000 });
