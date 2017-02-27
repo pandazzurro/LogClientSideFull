@@ -11,6 +11,7 @@ import { DataTableModule } from "angular2-serverpagination-datatable";
 import { AppComponent } from './app.component';
 import { ApplicationInsightComponent } from './application-insight/application-insight.component';
 import { JSNlogComponent } from './jsnlog/jsnlog.component';
+import { UserComponent } from './user/user.component';
 
 import { JSLoggerService } from './jslogger.service';
 import { ProductService} from './product.service';
@@ -18,12 +19,13 @@ import { UserService } from './user.service';
 import { HttpSpinnerComponent } from './http-spinner/http-spinner.component';
 
 import { FileDropDirective, FileUploader } from 'ng2-file-upload';
-import { UserComponent } from './user/user.component';
 
 
 const appRoutes: Routes = [
   { path: 'application-insight', component: ApplicationInsightComponent },
-  { path: 'jsnlog', component: JSNlogComponent }
+  { path: 'jsnlog', component: JSNlogComponent },
+  { path: 'user', component: UserComponent},
+  { path: '', component: UserComponent}
 ];
 
 @NgModule({

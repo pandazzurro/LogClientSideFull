@@ -17,7 +17,7 @@ import { UserService } from '../user.service';
 export class JSNlogComponent implements OnInit {
     public products: PaginationData<Product> = new PaginationData<Product>(new Array<Product>() , 0);
     errorMessage: any;
-    public rowsOnPage = 10;
+    public rowsOnPage = 5;
     public activePage = 1;
     
     public uploader: FileUploader;
@@ -33,10 +33,11 @@ export class JSNlogComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.getProducts();
+        
     }
 
-    getProducts() {
+    public getProducts() {
+        this.snackBar.open("Caricamento Dati", "Loading", { duration: 2000 });
         this.dialog.open(HttpSpinnerComponent);
 
         var skip: number = this.rowsOnPage * (this.activePage - 1);
@@ -46,13 +47,10 @@ export class JSNlogComponent implements OnInit {
                 this.products = products;                
                 this.dialog.closeAll();
             },
-            error => this.errorMessage = <any>error);
-    }
-
-    public onPageChange(event) {
-        this.rowsOnPage = event.rowsOnPage;
-        this.activePage = event.activePage;
-        this.getProducts();       
+            error => {
+                this.errorMessage = <any>error;
+                this.log.Error(this.errorMessage);
+            });
     }
 
     public fileOverBase(e: any): void {
@@ -63,35 +61,48 @@ export class JSNlogComponent implements OnInit {
         this.hasAnotherDropZoneOver = e;
     }
 
+    public onPageChange(event) {
+        this.rowsOnPage = event.rowsOnPage;
+        this.activePage = event.activePage;
+        this.getProducts();
+        
+        this.log.Info({ msg: "Caricamento pagina successiva", currentPage: this.activePage, user : this._userService});    
+    }
+
     public onAfterAddingFile(fileItem: FileItem): void {
-        debugger
-        this.log.Debug({ msg: "Adding File", file: fileItem.file });
+        this.snackBar.open("File" + fileItem.file.name + " aggiunto", "Ok", { duration: 2000 });
+        this.log.Debug({ msg: "Adding File", file: fileItem.file, user : this._userService});
     }
     public onBeforeUploadItem(fileItem: FileItem): void {
-        debugger
-        this.log.Debug({ msg: "Before File", file: fileItem.file });
+        this.snackBar.open("Il File" + fileItem.file.name + " si sta caricando", "Loading", { duration: 2000 });
+        this.log.Debug({ msg: "Before File", file: fileItem.file, user : this._userService });
     }
     public onCompleteItem(fileItem: FileItem): void {
-        debugger
-        this.log.Debug({ msg: "Complete File", file: fileItem.file });
+        this.snackBar.open("Caricamento completato", "Ok", { duration: 2000 });
+        this.log.Debug({ msg: "Complete File", file: fileItem.file, user : this._userService });
     }
     public onErrorItem(item: FileItem, response: string, status: number, headers: ParsedResponseHeaders): void {
-        debugger
-        this.log.Debug({ msg: "Error File", file: item.file });
+        this.snackBar.open("Il File" + item.file.name + " non è stato caricato", "Error", { duration: 2000 });
+        this.log.Error({ msg: "Error File", file: item.file, user : this._userService });
     }
 
-    public coreDebug() {
-        this.log.Debug("asp net core Debug");
-        this.snackBar.open("asp net core Debug", "coreDebug", { duration: 2000 });
-    }
+    public loadError() {
+        this.log.Error({ msg: "Simulazione Errore", user : this._userService});
+        this.snackBar.open("Simulazione Errore", "Errors", { duration: 2000 });
 
-    public coreInfo() {
-        this.log.Info("asp net core Info");
-        this.snackBar.open("asp net core Info", "coreInfo", { duration: 2000 });
-    }
+        this.dialog.open(HttpSpinnerComponent);
 
-    public coreError() {
-        this.log.Error("asp net core Error");
-        this.snackBar.open("asp net core Error", "coreError", { duration: 2000 });
+        var skip: number = this.rowsOnPage * (this.activePage - 1);
+        this._productService.getProductsError()
+            .subscribe(
+            products => {
+                this.products = products;                
+                this.dialog.closeAll();
+            },
+            error => {
+                this.errorMessage = <any>error;
+                this.log.Error(this.errorMessage);
+                this.dialog.closeAll();
+            });
     }
 }

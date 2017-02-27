@@ -127,12 +127,18 @@ var JSLoggerService = (function () {
         this.logger = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_jsnlog__["JL"])();
     }
     JSLoggerService.prototype.Debug = function (logObject) {
+        if (typeof logObject != "string")
+            logObject = JSON.stringify(logObject).replace(/"/g, "\\'");
         this.logger.debug(logObject);
     };
     JSLoggerService.prototype.Info = function (logObject) {
+        if (typeof logObject != "string")
+            logObject = JSON.stringify(logObject).replace(/"/g, "\\'");
         this.logger.info(logObject);
     };
     JSLoggerService.prototype.Error = function (logObject) {
+        if (typeof logObject != "string")
+            logObject = JSON.stringify(logObject).replace(/"/g, "\\'");
         this.logger.error(logObject);
     };
     JSLoggerService = __decorate([
@@ -184,7 +190,10 @@ var ProductService = (function () {
             .map(this.createPaginationData)
             .catch(this.handleError);
     };
-    ProductService.prototype.getProduct = function (productId) {
+    ProductService.prototype.getProductsError = function () {
+        return this.http.get(this.productUrl + "error")
+            .map(this.createPaginationData)
+            .catch(this.handleError);
     };
     ProductService.prototype.createPaginationData = function (res) {
         var body = res.json();
@@ -193,15 +202,13 @@ var ProductService = (function () {
     };
     ProductService.prototype.handleError = function (error) {
         var errMsg;
+        debugger;
         if (error instanceof __WEBPACK_IMPORTED_MODULE_1__angular_http__["c" /* Response */]) {
-            var body = error.json() || '';
-            var err = body.error || JSON.stringify(body);
-            errMsg = error.status + " - " + (error.statusText || '') + " " + err;
+            errMsg = error.statusText || '';
         }
         else {
             errMsg = error.message ? error.message : error.toString();
         }
-        console.error(errMsg);
         return __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__["Observable"].throw(errMsg);
     };
     ProductService = __decorate([
@@ -303,13 +310,13 @@ var AppComponent = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__app_component__ = __webpack_require__(783);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__application_insight_application_insight_component__ = __webpack_require__(785);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__jsnlog_jsnlog_component__ = __webpack_require__(786);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__jslogger_service__ = __webpack_require__(485);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__product_service__ = __webpack_require__(486);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__user_service__ = __webpack_require__(288);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__http_spinner_http_spinner_component__ = __webpack_require__(484);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15_ng2_file_upload__ = __webpack_require__(585);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15_ng2_file_upload___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_15_ng2_file_upload__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__user_user_component__ = __webpack_require__(787);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__user_user_component__ = __webpack_require__(787);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__jslogger_service__ = __webpack_require__(485);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__product_service__ = __webpack_require__(486);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__user_service__ = __webpack_require__(288);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__http_spinner_http_spinner_component__ = __webpack_require__(484);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16_ng2_file_upload__ = __webpack_require__(585);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16_ng2_file_upload___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_16_ng2_file_upload__);
 /* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return AppModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -339,7 +346,9 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 var appRoutes = [
     { path: 'application-insight', component: __WEBPACK_IMPORTED_MODULE_9__application_insight_application_insight_component__["a" /* ApplicationInsightComponent */] },
-    { path: 'jsnlog', component: __WEBPACK_IMPORTED_MODULE_10__jsnlog_jsnlog_component__["a" /* JSNlogComponent */] }
+    { path: 'jsnlog', component: __WEBPACK_IMPORTED_MODULE_10__jsnlog_jsnlog_component__["a" /* JSNlogComponent */] },
+    { path: 'user', component: __WEBPACK_IMPORTED_MODULE_11__user_user_component__["a" /* UserComponent */] },
+    { path: '', component: __WEBPACK_IMPORTED_MODULE_11__user_user_component__["a" /* UserComponent */] }
 ];
 var AppModule = (function () {
     function AppModule() {
@@ -350,12 +359,12 @@ var AppModule = (function () {
                 __WEBPACK_IMPORTED_MODULE_8__app_component__["a" /* AppComponent */],
                 __WEBPACK_IMPORTED_MODULE_9__application_insight_application_insight_component__["a" /* ApplicationInsightComponent */],
                 __WEBPACK_IMPORTED_MODULE_10__jsnlog_jsnlog_component__["a" /* JSNlogComponent */],
-                __WEBPACK_IMPORTED_MODULE_14__http_spinner_http_spinner_component__["a" /* HttpSpinnerComponent */],
-                __WEBPACK_IMPORTED_MODULE_15_ng2_file_upload__["FileDropDirective"],
-                __WEBPACK_IMPORTED_MODULE_16__user_user_component__["a" /* UserComponent */]
+                __WEBPACK_IMPORTED_MODULE_15__http_spinner_http_spinner_component__["a" /* HttpSpinnerComponent */],
+                __WEBPACK_IMPORTED_MODULE_16_ng2_file_upload__["FileDropDirective"],
+                __WEBPACK_IMPORTED_MODULE_11__user_user_component__["a" /* UserComponent */]
             ],
             entryComponents: [
-                __WEBPACK_IMPORTED_MODULE_14__http_spinner_http_spinner_component__["a" /* HttpSpinnerComponent */]
+                __WEBPACK_IMPORTED_MODULE_15__http_spinner_http_spinner_component__["a" /* HttpSpinnerComponent */]
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["e" /* BrowserModule */],
@@ -366,7 +375,7 @@ var AppModule = (function () {
                 __WEBPACK_IMPORTED_MODULE_7_angular2_serverpagination_datatable__["DataTableModule"],
                 __WEBPACK_IMPORTED_MODULE_4__angular_material__["MaterialModule"].forRoot()
             ],
-            providers: [__WEBPACK_IMPORTED_MODULE_11__jslogger_service__["a" /* JSLoggerService */], __WEBPACK_IMPORTED_MODULE_12__product_service__["a" /* ProductService */], __WEBPACK_IMPORTED_MODULE_13__user_service__["a" /* UserService */]],
+            providers: [__WEBPACK_IMPORTED_MODULE_12__jslogger_service__["a" /* JSLoggerService */], __WEBPACK_IMPORTED_MODULE_13__product_service__["a" /* ProductService */], __WEBPACK_IMPORTED_MODULE_14__user_service__["a" /* UserService */]],
             bootstrap: [__WEBPACK_IMPORTED_MODULE_8__app_component__["a" /* AppComponent */]]
         }), 
         __metadata('design:paramtypes', [])
@@ -494,7 +503,7 @@ var JSNlogComponent = (function () {
         this.snackBar = snackBar;
         this.dialog = dialog;
         this.products = new __WEBPACK_IMPORTED_MODULE_4__Models_PaginationData__["a" /* PaginationData */](new Array(), 0);
-        this.rowsOnPage = 10;
+        this.rowsOnPage = 5;
         this.activePage = 1;
         this.hasBaseDropZoneOver = false;
         this.hasAnotherDropZoneOver = false;
@@ -505,22 +514,20 @@ var JSNlogComponent = (function () {
         this.uploader.onCompleteItem = this.onCompleteItem.bind(this);
     }
     JSNlogComponent.prototype.ngOnInit = function () {
-        this.getProducts();
     };
     JSNlogComponent.prototype.getProducts = function () {
         var _this = this;
+        this.snackBar.open("Caricamento Dati", "Loading", { duration: 2000 });
         this.dialog.open(__WEBPACK_IMPORTED_MODULE_5__http_spinner_http_spinner_component__["a" /* HttpSpinnerComponent */]);
         var skip = this.rowsOnPage * (this.activePage - 1);
         this._productService.getProducts(skip, this.rowsOnPage)
             .subscribe(function (products) {
             _this.products = products;
             _this.dialog.closeAll();
-        }, function (error) { return _this.errorMessage = error; });
-    };
-    JSNlogComponent.prototype.onPageChange = function (event) {
-        this.rowsOnPage = event.rowsOnPage;
-        this.activePage = event.activePage;
-        this.getProducts();
+        }, function (error) {
+            _this.errorMessage = error;
+            _this.log.Error(_this.errorMessage);
+        });
     };
     JSNlogComponent.prototype.fileOverBase = function (e) {
         this.hasBaseDropZoneOver = e;
@@ -528,33 +535,44 @@ var JSNlogComponent = (function () {
     JSNlogComponent.prototype.fileOverAnother = function (e) {
         this.hasAnotherDropZoneOver = e;
     };
+    JSNlogComponent.prototype.onPageChange = function (event) {
+        this.rowsOnPage = event.rowsOnPage;
+        this.activePage = event.activePage;
+        this.getProducts();
+        this.log.Info({ msg: "Caricamento pagina successiva", currentPage: this.activePage, user: this._userService });
+    };
     JSNlogComponent.prototype.onAfterAddingFile = function (fileItem) {
-        debugger;
-        this.log.Debug({ msg: "Adding File", file: fileItem.file });
+        this.snackBar.open("File" + fileItem.file.name + " aggiunto", "Ok", { duration: 2000 });
+        this.log.Debug({ msg: "Adding File", file: fileItem.file, user: this._userService });
     };
     JSNlogComponent.prototype.onBeforeUploadItem = function (fileItem) {
-        debugger;
-        this.log.Debug({ msg: "Before File", file: fileItem.file });
+        this.snackBar.open("Il File" + fileItem.file.name + " si sta caricando", "Loading", { duration: 2000 });
+        this.log.Debug({ msg: "Before File", file: fileItem.file, user: this._userService });
     };
     JSNlogComponent.prototype.onCompleteItem = function (fileItem) {
-        debugger;
-        this.log.Debug({ msg: "Complete File", file: fileItem.file });
+        this.snackBar.open("Caricamento completato", "Ok", { duration: 2000 });
+        this.log.Debug({ msg: "Complete File", file: fileItem.file, user: this._userService });
     };
     JSNlogComponent.prototype.onErrorItem = function (item, response, status, headers) {
+        this.snackBar.open("Il File" + item.file.name + " non è stato caricato", "Error", { duration: 2000 });
+        this.log.Error({ msg: "Error File", file: item.file, user: this._userService });
+    };
+    JSNlogComponent.prototype.loadError = function () {
+        var _this = this;
         debugger;
-        this.log.Debug({ msg: "Error File", file: item.file });
-    };
-    JSNlogComponent.prototype.coreDebug = function () {
-        this.log.Debug("asp net core Debug");
-        this.snackBar.open("asp net core Debug", "coreDebug", { duration: 2000 });
-    };
-    JSNlogComponent.prototype.coreInfo = function () {
-        this.log.Info("asp net core Info");
-        this.snackBar.open("asp net core Info", "coreInfo", { duration: 2000 });
-    };
-    JSNlogComponent.prototype.coreError = function () {
-        this.log.Error("asp net core Error");
-        this.snackBar.open("asp net core Error", "coreError", { duration: 2000 });
+        this.log.Error({ msg: "Simulazione Errore", user: this._userService });
+        this.snackBar.open("Simulazione Errore", "Errors", { duration: 2000 });
+        this.dialog.open(__WEBPACK_IMPORTED_MODULE_5__http_spinner_http_spinner_component__["a" /* HttpSpinnerComponent */]);
+        var skip = this.rowsOnPage * (this.activePage - 1);
+        this._productService.getProductsError()
+            .subscribe(function (products) {
+            _this.products = products;
+            _this.dialog.closeAll();
+        }, function (error) {
+            _this.errorMessage = error;
+            _this.log.Error(_this.errorMessage);
+            _this.dialog.closeAll();
+        });
     };
     JSNlogComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
@@ -733,7 +751,7 @@ module.exports = ""
 /***/ 979:
 /***/ function(module, exports) {
 
-module.exports = "<md-toolbar color=\"primary\">\n    <md-menu #appMenu=\"mdMenu\">\n        <button md-menu-item routerLink=\"/application-insight\" routerLinkActive=\"active\"><md-icon>trending_up</md-icon> Application Insight</button>\n        <button md-menu-item routerLink=\"/jsnlog\" routerLinkActive=\"active\"><md-icon>line_style</md-icon> JSNLog</button>\n    </md-menu>\n    <button md-icon-button [mdMenuTriggerFor]=\"appMenu\">\n        <md-icon>more_vert</md-icon>\n    </button>\n</md-toolbar>\n<app-user></app-user>\n\n<router-outlet></router-outlet>"
+module.exports = "<md-toolbar color=\"primary\">\n    <md-menu #appMenu=\"mdMenu\">\n        <button md-menu-item routerLink=\"/application-insight\" routerLinkActive=\"active\"><md-icon>trending_up</md-icon> Application Insight</button>\n        <button md-menu-item routerLink=\"/jsnlog\" routerLinkActive=\"active\"><md-icon>line_style</md-icon> JSNLog</button>\n        <button md-menu-item routerLink=\"/user\" routerLinkActive=\"active\" ><md-icon>account_circle</md-icon> Aggiorna Utente</button>\n    </md-menu>\n    <button md-icon-button [mdMenuTriggerFor]=\"appMenu\">\n        <md-icon>more_vert</md-icon>\n    </button>\n</md-toolbar>\n<router-outlet></router-outlet>"
 
 /***/ },
 
@@ -747,21 +765,21 @@ module.exports = "<h3>\n  Application Insight\n</h3>\n\n<button md-raised-button
 /***/ 981:
 /***/ function(module, exports) {
 
-module.exports = "<md-progress-circle [mode]=\"indeterminate\"></md-progress-circle>"
+module.exports = "<md-spinner [mode]=\"indeterminate\"></md-spinner>"
 
 /***/ },
 
 /***/ 982:
 /***/ function(module, exports) {
 
-module.exports = "<style>\r\n    .my-drop-zone {\r\n        border: dotted 3px lightgray;\r\n    }\r\n    \r\n    .nv-file-over {\r\n        border: dotted 3px red;\r\n    }\r\n    /* Default class applied to drop zones on over */\r\n    \r\n    .another-file-over-class {\r\n        border: dotted 3px green;\r\n    }\r\n    \r\n    html,\r\n    body {\r\n        height: 100%;\r\n    }\r\n</style>\r\n\r\n<div layout=\"row\" layout-align=\"center center\">\r\n    <h3>JSNlog</h3>\r\n\r\n\r\n    <md-card>\r\n        <md-card-title>Asp Net Core</md-card-title>\r\n        <md-card-content>\r\n            <button md-raised-button color=\"primary\" (click)=\"coreDebug()\">Debug</button>\r\n            <button md-raised-button color=\"accent\" (click)=\"coreInfo()\">Information</button>\r\n            <button md-button color=\"primary\" (click)=\"coreError()\">Error</button>\r\n        </md-card-content>\r\n    </md-card>\r\n\r\n    <br>\r\n     <div class=\"row\">\r\n        <div class=\"col-md-3\">\r\n            <div ng2FileDrop [ngClass]=\"{'nv-file-over': hasBaseDropZoneOver}\" (fileOver)=\"fileOverBase($event)\" [uploader]=\"uploader\"\r\n                class=\"well my-drop-zone\">\r\n                Carica singolo file\r\n            </div>\r\n        </div>\r\n        <div class=\"col-md-9\" style=\"margin-bottom: 40px\">\r\n            <p>Elementi in coda: {{ uploader?.queue?.length }}</p>\r\n            <table class=\"table\">\r\n                <thead>\r\n                    <tr>\r\n                        <th width=\"50%\">Name</th>\r\n                        <th>Size</th>\r\n                        <th>Progress</th>\r\n                    </tr>\r\n                </thead>\r\n                <tbody>\r\n                    <tr *ngFor=\"let item of uploader.queue\">\r\n                        <td><strong>{{ item?.file?.name }}</strong></td>\r\n                        <td *ngIf=\"uploader.isHTML5\" nowrap>{{ item?.file?.size/1024/1024 | number:'.2' }} MB</td>\r\n                        <td *ngIf=\"uploader.isHTML5\">\r\n                            <div class=\"progress\" style=\"margin-bottom: 0;\">\r\n                                <div class=\"progress-bar\" role=\"progressbar\" [ngStyle]=\"{ 'width': item.progress + '%' }\"></div>\r\n                            </div>\r\n                        </td>\r\n                        <td class=\"text-center\">\r\n                            <span *ngIf=\"item.isSuccess\"><i class=\"glyphicon glyphicon-ok\"></i></span>\r\n                            <span *ngIf=\"item.isCancel\"><i class=\"glyphicon glyphicon-ban-circle\"></i></span>\r\n                            <span *ngIf=\"item.isError\"><i class=\"glyphicon glyphicon-remove\"></i></span>\r\n                        </td>\r\n                        <td nowrap>\r\n                            <button type=\"button\" class=\"btn btn-success btn-xs\" (click)=\"item.upload()\" [disabled]=\"item.isReady || item.isUploading || item.isSuccess\">\r\n                                    <span class=\"glyphicon glyphicon-upload\"></span> Upload\r\n                                </button>\r\n                            <button type=\"button\" class=\"btn btn-warning btn-xs\" (click)=\"item.cancel()\" [disabled]=\"!item.isUploading\">\r\n                                    <span class=\"glyphicon glyphicon-ban-circle\"></span> Cancel\r\n                                </button>\r\n                            <button type=\"button\" class=\"btn btn-danger btn-xs\" (click)=\"item.remove()\">\r\n                                    <span class=\"glyphicon glyphicon-trash\"></span> Remove\r\n                                </button>\r\n                        </td>\r\n                    </tr>\r\n                </tbody>\r\n                <tfoot>\r\n                    <tr>\r\n                        <td colspan=\"3\">\r\n                             Progresso della coda:\r\n                            <div class=\"progress\">\r\n                                <div class=\"progress-bar\" role=\"progressbar\" [ngStyle]=\"{ 'width': uploader.progress + '%' }\"></div>\r\n                            </div>\r\n                        </td>\r\n                    </tr>\r\n                </tfoot>\r\n            </table>\r\n        </div>\r\n     </div>\r\n\r\n    <br>\r\n\r\n    <md-card>\r\n        <md-card-title>Products</md-card-title>\r\n        <md-card-content>\r\n            <table class=\"table table-striped\" [mfData]=\"products.data\" #mf=\"mfDataTable\" [mfRowsOnPage]=\"rowsOnPage\" [mfActivePage]=\"activePage\"\r\n                [(mfAmountOfRows)]=\"products.totalItems\" (mfOnPageChange)=\"onPageChange($event)\">\r\n                <thead>\r\n                    <tr>\r\n                        <th style=\"width: 25%\">\r\n                            <mfDefaultSorter by=\"name\">Name</mfDefaultSorter>\r\n                        </th>\r\n                        <th style=\"width: 40%\">\r\n                            <mfDefaultSorter by=\"description\">Description</mfDefaultSorter>\r\n                        </th>\r\n                        <th style=\"width: 10%\">\r\n                            <mfDefaultSorter by=\"price\">Price</mfDefaultSorter>\r\n                        </th>\r\n                        <th style=\"width: 25%\">\r\n                            <mfDefaultSorter by=\"available\">Available</mfDefaultSorter>\r\n                        </th>\r\n                    </tr>\r\n                </thead>\r\n                <tbody>\r\n                    <tr *ngFor=\"let item of mf.data\">\r\n                        <td>{{item.name}}</td>\r\n                        <td>{{item.description}}</td>\r\n                        <td>{{item.price}}</td>\r\n                        <td>\r\n                            <md-checkbox [(ngModel)]=\"item.available\"></md-checkbox>\r\n                        </td>\r\n                    </tr>\r\n                </tbody>\r\n                <tfoot>\r\n                    <tr>\r\n                        <td colspan=\"4\">\r\n                            <mfBootstrapPaginator [rowsOnPageSet]=\"[5,10,15]\"></mfBootstrapPaginator>\r\n                        </td>\r\n                    </tr>\r\n                </tfoot>\r\n                </table>\r\n        </md-card-content>\r\n    </md-card>\r\n</div>"
+module.exports = "<style>\r\n    .my-drop-zone {\r\n        border: dotted 3px lightgray;\r\n    }\r\n    \r\n    .nv-file-over {\r\n        border: dotted 3px red;\r\n    }\r\n    /* Default class applied to drop zones on over */\r\n    \r\n    .another-file-over-class {\r\n        border: dotted 3px green;\r\n    }\r\n    \r\n    html,\r\n    body {\r\n        height: 100%;\r\n    }\r\n</style>\r\n\r\n<div layout=\"row\" layout-align=\"center center\">\r\n    <h3 class=\"text-center\">JSNlog</h3>\r\n     <div class=\"row\">\r\n        <div class=\"col-md-3\">\r\n            <div ng2FileDrop [ngClass]=\"{'nv-file-over': hasBaseDropZoneOver}\" (fileOver)=\"fileOverBase($event)\" [uploader]=\"uploader\"\r\n                class=\"well my-drop-zone\">\r\n                Carica singolo file\r\n            </div>\r\n        </div>\r\n        <div class=\"col-md-9\">\r\n            <p>Elementi in coda: {{ uploader?.queue?.length }}</p>\r\n            <table class=\"table\">\r\n                <thead>\r\n                    <tr>\r\n                        <th width=\"50%\">Name</th>\r\n                        <th>Size</th>\r\n                        <th>Progress</th>\r\n                    </tr>\r\n                </thead>\r\n                <tbody>\r\n                    <tr *ngFor=\"let item of uploader.queue\">\r\n                        <td><strong>{{ item?.file?.name }}</strong></td>\r\n                        <td *ngIf=\"uploader.isHTML5\" nowrap>{{ item?.file?.size/1024/1024 | number:'.2' }} MB</td>\r\n                        <td *ngIf=\"uploader.isHTML5\">\r\n                            <div class=\"progress\" style=\"margin-bottom: 0;\">\r\n                                <div class=\"progress-bar\" role=\"progressbar\" [ngStyle]=\"{ 'width': item.progress + '%' }\"></div>\r\n                            </div>\r\n                        </td>\r\n                        <td class=\"text-center\">\r\n                            <span *ngIf=\"item.isSuccess\"><i class=\"glyphicon glyphicon-ok\"></i></span>\r\n                            <span *ngIf=\"item.isCancel\"><i class=\"glyphicon glyphicon-ban-circle\"></i></span>\r\n                            <span *ngIf=\"item.isError\"><i class=\"glyphicon glyphicon-remove\"></i></span>\r\n                        </td>\r\n                        <td nowrap>\r\n                            <button type=\"button\" class=\"btn btn-success btn-xs\" (click)=\"item.upload()\" [disabled]=\"item.isReady || item.isUploading || item.isSuccess\">\r\n                                    <span class=\"glyphicon glyphicon-upload\"></span> Upload\r\n                                </button>\r\n                            <button type=\"button\" class=\"btn btn-warning btn-xs\" (click)=\"item.cancel()\" [disabled]=\"!item.isUploading\">\r\n                                    <span class=\"glyphicon glyphicon-ban-circle\"></span> Cancel\r\n                                </button>\r\n                            <button type=\"button\" class=\"btn btn-danger btn-xs\" (click)=\"item.remove()\">\r\n                                    <span class=\"glyphicon glyphicon-trash\"></span> Remove\r\n                                </button>\r\n                        </td>\r\n                    </tr>\r\n                </tbody>\r\n                <tfoot>\r\n                    <tr>\r\n                        <td colspan=\"3\">\r\n                             Progresso della coda:\r\n                            <div class=\"progress\">\r\n                                <div class=\"progress-bar\" role=\"progressbar\" [ngStyle]=\"{ 'width': uploader.progress + '%' }\"></div>\r\n                            </div>\r\n                        </td>\r\n                    </tr>\r\n                </tfoot>\r\n            </table>\r\n        </div>\r\n     </div>\r\n    <md-card>\r\n        <md-card-title>Products</md-card-title>\r\n        <md-card-subtitle>\r\n            <button md-raised-button color=\"primary\" (click)=\"getProducts()\">Carica Dati</button>\r\n            <button md-raised-button color=\"accent\" (click)=\"loadError()\">Simula Errore</button>\r\n        </md-card-subtitle>\r\n        <md-card-content>\r\n            <table class=\"table table-striped\" [mfData]=\"products.data\" #mf=\"mfDataTable\" [mfRowsOnPage]=\"rowsOnPage\" [mfActivePage]=\"activePage\"\r\n                [(mfAmountOfRows)]=\"products.totalItems\" (mfOnPageChange)=\"onPageChange($event)\">\r\n                <thead>\r\n                    <tr>\r\n                        <th style=\"width: 25%\">\r\n                            <mfDefaultSorter by=\"name\">Name</mfDefaultSorter>\r\n                        </th>\r\n                        <th style=\"width: 40%\">\r\n                            <mfDefaultSorter by=\"description\">Description</mfDefaultSorter>\r\n                        </th>\r\n                        <th style=\"width: 10%\">\r\n                            <mfDefaultSorter by=\"price\">Price</mfDefaultSorter>\r\n                        </th>\r\n                        <th style=\"width: 25%\">\r\n                            <mfDefaultSorter by=\"available\">Available</mfDefaultSorter>\r\n                        </th>\r\n                    </tr>\r\n                </thead>\r\n                <tbody>\r\n                    <tr *ngFor=\"let item of mf.data\">\r\n                        <td>{{item.name}}</td>\r\n                        <td>{{item.description}}</td>\r\n                        <td>{{item.price}}</td>\r\n                        <td>\r\n                            <md-checkbox [(ngModel)]=\"item.available\"></md-checkbox>\r\n                        </td>\r\n                    </tr>\r\n                </tbody>\r\n                <tfoot>\r\n                    <tr>\r\n                        <td colspan=\"4\">\r\n                            <mfBootstrapPaginator [rowsOnPageSet]=\"[5,10,15,20]\"></mfBootstrapPaginator>\r\n                        </td>\r\n                    </tr>\r\n                </tfoot>\r\n                </table>\r\n        </md-card-content>\r\n    </md-card>\r\n</div>"
 
 /***/ },
 
 /***/ 983:
 /***/ function(module, exports) {
 
-module.exports = "<div class=\"row\">\n  <div class=\"col-xs-6 col-sm-6 col-md-6 col-lg-6\">\n    <div class=\"text-center\">\n      <md-input-container>\n        <input md-input placeholder=\"Username\" [(ngModel)]=\"UserService.Username\">\n      </md-input-container>\n    </div>\n  </div>\n  <div class=\"col-xs-6 col-sm-6 col-md-6 col-lg-6\">\n    <div class=\"text-center\">\n      <md-slide-toggle ng-checked=\"UserService.SexType\" (change)=\"changeSexType()\">{{Sesso}}</md-slide-toggle> \n    </div>       \n  </div>\n</div>"
+module.exports = "<md-card>\n  <md-card-title>Imposta dati utente</md-card-title>\n  <md-card-subtitle>I dati dell'utente verranno utilizzati per tracciare i log del sistema</md-card-subtitle>\n  <md-card-content>\n    <div class=\"row\">\n      <div class=\"col-xs-6 col-sm-6 col-md-6 col-lg-6\">\n        <div class=\"text-center\">\n          <md-input-container>\n            <input md-input placeholder=\"Username\" [(ngModel)]=\"UserService.Username\">\n          </md-input-container>\n        </div>\n      </div>\n      <div class=\"col-xs-6 col-sm-6 col-md-6 col-lg-6\">\n        <div class=\"text-center\">\n          <md-slide-toggle ng-checked=\"UserService.SexType\" (change)=\"changeSexType()\">{{Sesso}}</md-slide-toggle>\n        </div>\n      </div>\n    </div>\n  </md-card-content>\n</md-card>"
 
 /***/ }
 

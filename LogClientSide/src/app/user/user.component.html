@@ -1,14 +1,20 @@
-<div class="row">
-  <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-    <div class="text-center">
-      <md-input-container>
-        <input md-input placeholder="Username" [(ngModel)]="UserService.Username">
-      </md-input-container>
+<md-card>
+  <md-card-title>Imposta dati utente</md-card-title>
+  <md-card-subtitle>I dati dell'utente verranno utilizzati per tracciare i log del sistema</md-card-subtitle>
+  <md-card-content>
+    <div class="row">
+      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+        <div class="text-center">
+          <md-input-container>
+            <input md-input placeholder="Username" [(ngModel)]="UserService.Username">
+          </md-input-container>
+        </div>
+      </div>
+      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+        <div class="text-center">
+          <md-slide-toggle ng-checked="UserService.SexType" (change)="changeSexType()">{{Sesso}}</md-slide-toggle>
+        </div>
+      </div>
     </div>
-  </div>
-  <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-    <div class="text-center">
-      <md-slide-toggle ng-checked="UserService.SexType" (change)="changeSexType()">{{Sesso}}</md-slide-toggle> 
-    </div>       
-  </div>
-</div>
+  </md-card-content>
+</md-card>

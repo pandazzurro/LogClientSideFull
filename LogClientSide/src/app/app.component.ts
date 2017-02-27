@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
 import { ApplicationInsightComponent } from './application-insight/application-insight.component';
-/* import AppInsights */
-import { AppInsights } from "applicationinsights-js";
 import { JSNlogComponent } from './jsnlog/jsnlog.component';
 import { UserComponent } from './user/user.component';
 
