@@ -202,7 +202,6 @@ var ProductService = (function () {
     };
     ProductService.prototype.handleError = function (error) {
         var errMsg;
-        debugger;
         if (error instanceof __WEBPACK_IMPORTED_MODULE_1__angular_http__["c" /* Response */]) {
             errMsg = error.statusText || '';
         }
@@ -519,11 +518,16 @@ var JSNlogComponent = (function () {
         var _this = this;
         this.snackBar.open("Caricamento Dati", "Loading", { duration: 2000 });
         this.dialog.open(__WEBPACK_IMPORTED_MODULE_5__http_spinner_http_spinner_component__["a" /* HttpSpinnerComponent */]);
+        var startDate = Date.now();
         var skip = this.rowsOnPage * (this.activePage - 1);
         this._productService.getProducts(skip, this.rowsOnPage)
             .subscribe(function (products) {
+            var stopDate = Date.now();
             _this.products = products;
             _this.dialog.closeAll();
+            var differenceDate = stopDate - startDate;
+            debugger;
+            _this.log.Debug({ msg: "Caricamento dati in " + differenceDate + " ms", user: _this._userService });
         }, function (error) {
             _this.errorMessage = error;
             _this.log.Error(_this.errorMessage);
@@ -559,7 +563,6 @@ var JSNlogComponent = (function () {
     };
     JSNlogComponent.prototype.loadError = function () {
         var _this = this;
-        debugger;
         this.log.Error({ msg: "Simulazione Errore", user: this._userService });
         this.snackBar.open("Simulazione Errore", "Errors", { duration: 2000 });
         this.dialog.open(__WEBPACK_IMPORTED_MODULE_5__http_spinner_http_spinner_component__["a" /* HttpSpinnerComponent */]);

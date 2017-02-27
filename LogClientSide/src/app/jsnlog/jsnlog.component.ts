@@ -30,6 +30,7 @@ export class JSNlogComponent implements OnInit {
         this.uploader.onBeforeUploadItem = this.onBeforeUploadItem.bind(this);
         this.uploader.onErrorItem = this.onErrorItem.bind(this);
         this.uploader.onCompleteItem = this.onCompleteItem.bind(this);
+        this.log.Debug({ msg: "Visita del componente JSNLog", user : this._userService}); 
     }
 
     ngOnInit() {
@@ -39,13 +40,18 @@ export class JSNlogComponent implements OnInit {
     public getProducts() {
         this.snackBar.open("Caricamento Dati", "Loading", { duration: 2000 });
         this.dialog.open(HttpSpinnerComponent);
+        let startDate = Date.now();
 
         var skip: number = this.rowsOnPage * (this.activePage - 1);
         this._productService.getProducts(skip, this.rowsOnPage)
             .subscribe(
             products => {
+                let stopDate = Date.now();
                 this.products = products;                
                 this.dialog.closeAll();
+                let differenceDate = stopDate - startDate;
+                debugger
+                this.log.Debug({ msg: "Caricamento dati in " + differenceDate + " ms" , user : this._userService});    
             },
             error => {
                 this.errorMessage = <any>error;
