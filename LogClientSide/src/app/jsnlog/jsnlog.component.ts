@@ -52,7 +52,6 @@ export class JSNlogComponent implements OnInit {
                 this.products = products;                
                 this.dialog.closeAll();
                 let differenceDate = stopDate - startDate;
-                debugger
                 this.log.Debug({ 
                     msg: "Caricamento dati in " + differenceDate + " ms" ,
                     user : this._userService,                    

@@ -15,6 +15,7 @@ import { UserComponent } from './user/user.component';
 
 import { JSLoggerService } from './jslogger.service';
 import { ProductService} from './product.service';
+import { ProductServiceApplicationInsight} from './product-application-insight.service';
 import { UserService } from './user.service';
 import { HttpSpinnerComponent } from './http-spinner/http-spinner.component';
 
@@ -49,7 +50,7 @@ const appRoutes: Routes = [
     DataTableModule,
     MaterialModule.forRoot()
 	],
-  providers: [JSLoggerService, ProductService, UserService],
+  providers: [JSLoggerService, ProductService, UserService, ProductServiceApplicationInsight],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
