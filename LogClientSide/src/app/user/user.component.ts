@@ -9,19 +9,17 @@ import { UserService } from '../user.service';
 export class UserComponent implements OnInit {
   public Sesso: string;
   constructor(public UserService : UserService) {
-    UserService.SexType = true;
+    UserService.Language = "Italiano";
     UserService.Username = "Andrea";
-    this.Sesso = "maschio";
    }
 
   ngOnInit() {
   }
   
-  public changeSexType(){
-    this.UserService.SexType = !this.UserService.SexType;
-    if(this.UserService.SexType)
-      this.Sesso = "maschio";
+  public changeLanguage(){
+    if(this.UserService.Language == "Italiano")
+      this.UserService.Language = "Inglese";
     else
-      this.Sesso = "femmina";
+      this.UserService.Language = "Italiano";
   }
 }

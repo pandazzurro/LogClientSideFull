@@ -27,6 +27,58 @@ module.exports = __webpack_require__(624);
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_jsnlog__ = __webpack_require__(945);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_jsnlog___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_jsnlog__);
+/* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return JSLoggerService; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var JSLoggerService = (function () {
+    function JSLoggerService() {
+        // Remap EndPoint
+        this.logger = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_jsnlog__["JL"])();
+    }
+    JSLoggerService.prototype.Debug = function (logObject) {
+        debugger;
+        if (typeof logObject != "string")
+            logObject = JSON.stringify(logObject).replace(/"/g, "\\'");
+        this.logger.debug(logObject);
+    };
+    JSLoggerService.prototype.Info = function (logObject) {
+        debugger;
+        if (typeof logObject != "string")
+            logObject = JSON.stringify(logObject).replace(/"/g, "\\'");
+        this.logger.info(logObject);
+    };
+    JSLoggerService.prototype.Error = function (logObject) {
+        debugger;
+        if (typeof logObject != "string")
+            logObject = JSON.stringify(logObject).replace(/"/g, "\\'");
+        this.logger.error(logObject);
+    };
+    JSLoggerService = __decorate([
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(), 
+        __metadata('design:paramtypes', [])
+    ], JSLoggerService);
+    return JSLoggerService;
+}());
+//# sourceMappingURL=E:/Progetti/GitHub/LogClientSideFull/LogClientSide/src/jslogger.service.js.map
+
+/***/ },
+
+/***/ 289:
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return UserService; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -51,7 +103,7 @@ var UserService = (function () {
 
 /***/ },
 
-/***/ 483:
+/***/ 484:
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -67,7 +119,7 @@ var PaginationData = (function () {
 
 /***/ },
 
-/***/ 484:
+/***/ 485:
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -102,55 +154,6 @@ var HttpSpinnerComponent = (function () {
 
 /***/ },
 
-/***/ 485:
-/***/ function(module, exports, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_jsnlog__ = __webpack_require__(945);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_jsnlog___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_jsnlog__);
-/* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return JSLoggerService; });
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-var JSLoggerService = (function () {
-    function JSLoggerService() {
-        // Remap EndPoint
-        this.logger = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_jsnlog__["JL"])();
-    }
-    JSLoggerService.prototype.Debug = function (logObject) {
-        if (typeof logObject != "string")
-            logObject = JSON.stringify(logObject).replace(/"/g, "\\'");
-        this.logger.debug(logObject);
-    };
-    JSLoggerService.prototype.Info = function (logObject) {
-        if (typeof logObject != "string")
-            logObject = JSON.stringify(logObject).replace(/"/g, "\\'");
-        this.logger.info(logObject);
-    };
-    JSLoggerService.prototype.Error = function (logObject) {
-        if (typeof logObject != "string")
-            logObject = JSON.stringify(logObject).replace(/"/g, "\\'");
-        this.logger.error(logObject);
-    };
-    JSLoggerService = __decorate([
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(), 
-        __metadata('design:paramtypes', [])
-    ], JSLoggerService);
-    return JSLoggerService;
-}());
-//# sourceMappingURL=E:/Progetti/GitHub/LogClientSideFull/LogClientSide/src/jslogger.service.js.map
-
-/***/ },
-
 /***/ 486:
 /***/ function(module, exports, __webpack_require__) {
 
@@ -159,11 +162,12 @@ var JSLoggerService = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(178);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_catch__ = __webpack_require__(331);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_catch__ = __webpack_require__(332);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_catch___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_catch__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map__ = __webpack_require__(89);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__Models_PaginationData__ = __webpack_require__(483);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__Models_PaginationData__ = __webpack_require__(484);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__jslogger_service__ = __webpack_require__(288);
 /* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return ProductService; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -180,17 +184,29 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var ProductService = (function () {
-    function ProductService(http) {
+    function ProductService(http, log) {
         this.http = http;
+        this.log = log;
         this.productUrl = 'api/products';
     }
     ProductService.prototype.getProducts = function (skip, take) {
+        this.log.Debug({
+            msg: "Chiamata a: " + this.productUrl + " in GET",
+            userAgent: window.navigator.userAgent,
+            route: window.location.pathname
+        });
         return this.http.get(this.productUrl + "/" + skip + "/" + take)
             .map(this.createPaginationData)
             .catch(this.handleError);
     };
     ProductService.prototype.getProductsError = function () {
+        this.log.Debug({
+            msg: "Chiamata a: " + this.productUrl + "error" + " in GET",
+            userAgent: window.navigator.userAgent,
+            route: window.location.pathname
+        });
         return this.http.get(this.productUrl + "error")
             .map(this.createPaginationData)
             .catch(this.handleError);
@@ -212,10 +228,10 @@ var ProductService = (function () {
     };
     ProductService = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(), 
-        __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Http */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Http */]) === 'function' && _a) || Object])
+        __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Http */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Http */]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_6__jslogger_service__["a" /* JSLoggerService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_6__jslogger_service__["a" /* JSLoggerService */]) === 'function' && _b) || Object])
     ], ProductService);
     return ProductService;
-    var _a;
+    var _a, _b;
 }());
 //# sourceMappingURL=E:/Progetti/GitHub/LogClientSideFull/LogClientSide/src/product.service.js.map
 
@@ -310,10 +326,10 @@ var AppComponent = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__application_insight_application_insight_component__ = __webpack_require__(785);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__jsnlog_jsnlog_component__ = __webpack_require__(786);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__user_user_component__ = __webpack_require__(787);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__jslogger_service__ = __webpack_require__(485);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__jslogger_service__ = __webpack_require__(288);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__product_service__ = __webpack_require__(486);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__user_service__ = __webpack_require__(288);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__http_spinner_http_spinner_component__ = __webpack_require__(484);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__user_service__ = __webpack_require__(289);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__http_spinner_http_spinner_component__ = __webpack_require__(485);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16_ng2_file_upload__ = __webpack_require__(585);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16_ng2_file_upload___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_16_ng2_file_upload__);
 /* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return AppModule; });
@@ -467,14 +483,14 @@ var ApplicationInsightComponent = (function () {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__jslogger_service__ = __webpack_require__(485);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__jslogger_service__ = __webpack_require__(288);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_material__ = __webpack_require__(189);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__product_service__ = __webpack_require__(486);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__Models_PaginationData__ = __webpack_require__(483);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__http_spinner_http_spinner_component__ = __webpack_require__(484);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__Models_PaginationData__ = __webpack_require__(484);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__http_spinner_http_spinner_component__ = __webpack_require__(485);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_ng2_file_upload__ = __webpack_require__(585);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_ng2_file_upload___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_ng2_file_upload__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__user_service__ = __webpack_require__(288);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__user_service__ = __webpack_require__(289);
 /* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return JSNlogComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -528,7 +544,12 @@ var JSNlogComponent = (function () {
             _this.dialog.closeAll();
             var differenceDate = stopDate - startDate;
             debugger;
-            _this.log.Debug({ msg: "Caricamento dati in " + differenceDate + " ms", user: _this._userService });
+            _this.log.Debug({
+                msg: "Caricamento dati in " + differenceDate + " ms",
+                user: _this._userService,
+                userAgent: window.navigator.userAgent,
+                route: window.location.pathname
+            });
         }, function (error) {
             _this.errorMessage = error;
             _this.log.Error(_this.errorMessage);
@@ -548,25 +569,53 @@ var JSNlogComponent = (function () {
     };
     JSNlogComponent.prototype.onAfterAddingFile = function (fileItem) {
         this.snackBar.open("File" + fileItem.file.name + " aggiunto", "Ok", { duration: 2000 });
-        this.log.Debug({ msg: "Adding File", file: fileItem.file, user: this._userService });
+        this.log.Debug({
+            msg: "Adding File",
+            file: fileItem.file,
+            user: this._userService,
+            userAgent: window.navigator.userAgent,
+            route: window.location.pathname
+        });
     };
     JSNlogComponent.prototype.onBeforeUploadItem = function (fileItem) {
         this.snackBar.open("Il File" + fileItem.file.name + " si sta caricando", "Loading", { duration: 2000 });
-        this.log.Debug({ msg: "Before File", file: fileItem.file, user: this._userService });
+        this.log.Debug({
+            msg: "Before File",
+            file: fileItem.file,
+            user: this._userService,
+            userAgent: window.navigator.userAgent,
+            route: window.location.pathname
+        });
         this.startUpload = Date.now();
     };
     JSNlogComponent.prototype.onCompleteItem = function (fileItem) {
         this.stopUpload = Date.now();
         this.snackBar.open("Caricamento completato", "Ok", { duration: 2000 });
-        this.log.Debug({ msg: "File caricato in " + (this.stopUpload - this.startUpload), file: fileItem.file, user: this._userService });
+        this.log.Debug({
+            msg: "File caricato in " + (this.stopUpload - this.startUpload) + " ms",
+            file: fileItem.file,
+            user: this._userService,
+            userAgent: window.navigator.userAgent,
+            route: window.location.pathname
+        });
     };
     JSNlogComponent.prototype.onErrorItem = function (item, response, status, headers) {
         this.snackBar.open("Il File" + item.file.name + " non è stato caricato", "Error", { duration: 2000 });
-        this.log.Error({ msg: "Error File", file: item.file, user: this._userService });
+        this.log.Error({ msg: "Error File",
+            file: item.file,
+            user: this._userService,
+            userAgent: window.navigator.userAgent,
+            route: window.location.pathname
+        });
     };
     JSNlogComponent.prototype.loadError = function () {
         var _this = this;
-        this.log.Error({ msg: "Simulazione Errore", user: this._userService });
+        this.log.Error({
+            msg: "Simulazione Errore",
+            user: this._userService,
+            userAgent: window.navigator.userAgent,
+            route: window.location.pathname
+        });
         this.snackBar.open("Simulazione Errore", "Errors", { duration: 2000 });
         this.dialog.open(__WEBPACK_IMPORTED_MODULE_5__http_spinner_http_spinner_component__["a" /* HttpSpinnerComponent */]);
         var skip = this.rowsOnPage * (this.activePage - 1);
@@ -600,7 +649,7 @@ var JSNlogComponent = (function () {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__user_service__ = __webpack_require__(288);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__user_service__ = __webpack_require__(289);
 /* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return UserComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -616,18 +665,16 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var UserComponent = (function () {
     function UserComponent(UserService) {
         this.UserService = UserService;
-        UserService.SexType = true;
+        UserService.Language = "Italiano";
         UserService.Username = "Andrea";
-        this.Sesso = "maschio";
     }
     UserComponent.prototype.ngOnInit = function () {
     };
-    UserComponent.prototype.changeSexType = function () {
-        this.UserService.SexType = !this.UserService.SexType;
-        if (this.UserService.SexType)
-            this.Sesso = "maschio";
+    UserComponent.prototype.changeLanguage = function () {
+        if (this.UserService.Language == "Italiano")
+            this.UserService.Language = "Inglese";
         else
-            this.Sesso = "femmina";
+            this.UserService.Language = "Italiano";
     };
     UserComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
@@ -785,7 +832,7 @@ module.exports = "<style>\r\n    .my-drop-zone {\r\n        border: dotted 3px l
 /***/ 983:
 /***/ function(module, exports) {
 
-module.exports = "<md-card>\n  <md-card-title>Imposta dati utente</md-card-title>\n  <md-card-subtitle>I dati dell'utente verranno utilizzati per tracciare i log del sistema</md-card-subtitle>\n  <md-card-content>\n    <div class=\"row\">\n      <div class=\"col-xs-6 col-sm-6 col-md-6 col-lg-6\">\n        <div class=\"text-center\">\n          <md-input-container>\n            <input md-input placeholder=\"Username\" [(ngModel)]=\"UserService.Username\">\n          </md-input-container>\n        </div>\n      </div>\n      <div class=\"col-xs-6 col-sm-6 col-md-6 col-lg-6\">\n        <div class=\"text-center\">\n          <md-slide-toggle ng-checked=\"UserService.SexType\" (change)=\"changeSexType()\">{{Sesso}}</md-slide-toggle>\n        </div>\n      </div>\n    </div>\n  </md-card-content>\n</md-card>"
+module.exports = "<md-card>\n  <md-card-title>Imposta dati utente</md-card-title>\n  <md-card-subtitle>I dati dell'utente verranno utilizzati per tracciare i log del sistema</md-card-subtitle>\n  <md-card-content>\n    <div class=\"row\">\n      <div class=\"col-xs-6 col-sm-6 col-md-6 col-lg-6\">\n        <div class=\"text-center\">\n          <md-input-container>\n            <input md-input placeholder=\"Username\" [(ngModel)]=\"UserService.Username\">\n          </md-input-container>\n        </div>\n      </div>\n      <div class=\"col-xs-6 col-sm-6 col-md-6 col-lg-6\">\n        <div class=\"text-center\">\n          <md-slide-toggle ng-checked=\"UserService.Language == 'Italiano'\" (change)=\"changeLanguage()\">{{UserService.Language}}</md-slide-toggle>\n        </div>\n      </div>\n    </div>\n  </md-card-content>\n</md-card>"
 
 /***/ }
 

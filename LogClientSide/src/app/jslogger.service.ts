@@ -22,7 +22,7 @@ export class JSLoggerService {
     this.logger.info(logObject);
   }
 
-  Error(logObject: any) {
+  Error(logObject: any) {    
     if(typeof logObject != "string")
       logObject = JSON.stringify(logObject).replace(/"/g, "\\'");
     this.logger.error(logObject);

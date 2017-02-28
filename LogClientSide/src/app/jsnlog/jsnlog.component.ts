@@ -53,7 +53,12 @@ export class JSNlogComponent implements OnInit {
                 this.dialog.closeAll();
                 let differenceDate = stopDate - startDate;
                 debugger
-                this.log.Debug({ msg: "Caricamento dati in " + differenceDate + " ms" , user : this._userService});    
+                this.log.Debug({ 
+                    msg: "Caricamento dati in " + differenceDate + " ms" ,
+                    user : this._userService,                    
+                    userAgent : window.navigator.userAgent,
+                    route : window.location.pathname
+                });    
             },
             error => {
                 this.errorMessage = <any>error;
@@ -79,25 +84,53 @@ export class JSNlogComponent implements OnInit {
 
     public onAfterAddingFile(fileItem: FileItem): void {
         this.snackBar.open("File" + fileItem.file.name + " aggiunto", "Ok", { duration: 2000 });
-        this.log.Debug({ msg: "Adding File", file: fileItem.file, user : this._userService});
+        this.log.Debug({
+            msg: "Adding File", 
+            file: fileItem.file, 
+            user : this._userService, 
+            userAgent : window.navigator.userAgent,
+            route : window.location.pathname                
+        });
     }
     public onBeforeUploadItem(fileItem: FileItem): void {
         this.snackBar.open("Il File" + fileItem.file.name + " si sta caricando", "Loading", { duration: 2000 });
-        this.log.Debug({ msg: "Before File", file: fileItem.file, user : this._userService });
+        this.log.Debug({ 
+            msg: "Before File", 
+            file: fileItem.file, 
+            user : this._userService,
+            userAgent : window.navigator.userAgent,
+            route : window.location.pathname    
+        });
         this.startUpload = Date.now();
     }
     public onCompleteItem(fileItem: FileItem): void {
         this.stopUpload = Date.now();
         this.snackBar.open("Caricamento completato", "Ok", { duration: 2000 });
-        this.log.Debug({ msg: "File caricato in " + (this.stopUpload - this.startUpload) + " ms", file: fileItem.file, user : this._userService });
+        this.log.Debug({ 
+            msg: "File caricato in " + (this.stopUpload - this.startUpload) + " ms", 
+            file: fileItem.file, 
+            user : this._userService,
+            userAgent : window.navigator.userAgent,
+            route : window.location.pathname
+         });
     }
     public onErrorItem(item: FileItem, response: string, status: number, headers: ParsedResponseHeaders): void {
         this.snackBar.open("Il File" + item.file.name + " non è stato caricato", "Error", { duration: 2000 });
-        this.log.Error({ msg: "Error File", file: item.file, user : this._userService });
+        this.log.Error({ msg: "Error File", 
+            file: item.file, 
+            user : this._userService,
+            userAgent : window.navigator.userAgent,
+            route : window.location.pathname
+        });
     }
 
     public loadError() {
-        this.log.Error({ msg: "Simulazione Errore", user : this._userService});
+        this.log.Error({ 
+            msg: "Simulazione Errore", 
+            user : this._userService,
+            userAgent : window.navigator.userAgent,
+            route : window.location.pathname
+        });
         this.snackBar.open("Simulazione Errore", "Errors", { duration: 2000 });
 
         this.dialog.open(HttpSpinnerComponent);
