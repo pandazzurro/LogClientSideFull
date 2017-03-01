@@ -17,7 +17,7 @@ webpackEmptyContext.id = 1237;
 /***/ 1238:
 /***/ function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(625);
+module.exports = __webpack_require__(626);
 
 
 /***/ },
@@ -164,6 +164,8 @@ var JSLoggerService = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map__ = __webpack_require__(76);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__Models_PaginationData__ = __webpack_require__(194);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_applicationinsights_js__ = __webpack_require__(492);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_applicationinsights_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_applicationinsights_js__);
 /* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return ProductServiceApplicationInsight; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -180,12 +182,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var ProductServiceApplicationInsight = (function () {
     function ProductServiceApplicationInsight(http) {
         this.http = http;
         this.productUrl = 'api/products';
     }
     ProductServiceApplicationInsight.prototype.getProducts = function (skip, take) {
+        this.startRequest = Date.now();
         return this.http.get(this.productUrl + "/" + skip + "/" + take)
             .map(this.createPaginationData)
             .catch(this.handleError);
@@ -196,12 +200,14 @@ var ProductServiceApplicationInsight = (function () {
             .catch(this.handleError);
     };
     ProductServiceApplicationInsight.prototype.createPaginationData = function (res) {
+        __WEBPACK_IMPORTED_MODULE_6_applicationinsights_js__["AppInsights"].trackAjax(Date.now().toLocaleString(), res.url, null, Date.now() - this.startRequest, true, res.status);
         var body = res.json();
         var paginationData = new __WEBPACK_IMPORTED_MODULE_5__Models_PaginationData__["a" /* PaginationData */](body.data, body.totalItems);
         return paginationData || {};
     };
     ProductServiceApplicationInsight.prototype.handleError = function (error) {
         var errMsg;
+        __WEBPACK_IMPORTED_MODULE_6_applicationinsights_js__["AppInsights"].trackAjax(Date.now().toLocaleString(), error.url, null, Date.now() - this.startRequest, true, error.status);
         if (error instanceof __WEBPACK_IMPORTED_MODULE_1__angular_http__["c" /* Response */]) {
             errMsg = error.statusText || '';
         }
@@ -304,7 +310,7 @@ var ProductService = (function () {
 
 /***/ },
 
-/***/ 624:
+/***/ 625:
 /***/ function(module, exports) {
 
 function webpackEmptyContext(req) {
@@ -313,21 +319,21 @@ function webpackEmptyContext(req) {
 webpackEmptyContext.keys = function() { return []; };
 webpackEmptyContext.resolve = webpackEmptyContext;
 module.exports = webpackEmptyContext;
-webpackEmptyContext.id = 624;
+webpackEmptyContext.id = 625;
 
 
 /***/ },
 
-/***/ 625:
+/***/ 626:
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__polyfills_ts__ = __webpack_require__(790);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__polyfills_ts__ = __webpack_require__(791);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__polyfills_ts___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__polyfills_ts__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dynamic__ = __webpack_require__(754);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dynamic__ = __webpack_require__(755);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__environments_environment__ = __webpack_require__(789);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_app_module__ = __webpack_require__(785);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__environments_environment__ = __webpack_require__(790);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_app_module__ = __webpack_require__(786);
 
 
 
@@ -341,7 +347,7 @@ __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dyna
 
 /***/ },
 
-/***/ 784:
+/***/ 785:
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -376,7 +382,7 @@ var AppComponent = (function () {
 
 /***/ },
 
-/***/ 785:
+/***/ 786:
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -385,14 +391,14 @@ var AppComponent = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(17);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(128);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_material__ = __webpack_require__(133);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_router__ = __webpack_require__(774);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_router__ = __webpack_require__(775);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_ng2_bootstrap__ = __webpack_require__(955);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_angular2_serverpagination_datatable__ = __webpack_require__(791);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_angular2_serverpagination_datatable__ = __webpack_require__(792);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_angular2_serverpagination_datatable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_angular2_serverpagination_datatable__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__app_component__ = __webpack_require__(784);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__application_insight_application_insight_component__ = __webpack_require__(786);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__jsnlog_jsnlog_component__ = __webpack_require__(787);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__user_user_component__ = __webpack_require__(788);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__app_component__ = __webpack_require__(785);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__application_insight_application_insight_component__ = __webpack_require__(787);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__jsnlog_jsnlog_component__ = __webpack_require__(788);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__user_user_component__ = __webpack_require__(789);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__jslogger_service__ = __webpack_require__(292);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__product_service__ = __webpack_require__(488);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__product_application_insight_service__ = __webpack_require__(487);
@@ -470,12 +476,12 @@ var AppModule = (function () {
 
 /***/ },
 
-/***/ 786:
+/***/ 787:
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_applicationinsights_js__ = __webpack_require__(793);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_applicationinsights_js__ = __webpack_require__(492);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_applicationinsights_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_applicationinsights_js__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_material__ = __webpack_require__(133);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__product_application_insight_service__ = __webpack_require__(487);
@@ -516,7 +522,7 @@ var ApplicationInsightComponent = (function () {
         this.hasBaseDropZoneOver = false;
         this.hasAnotherDropZoneOver = false;
         this.startPage = Date.now();
-        __WEBPACK_IMPORTED_MODULE_1_applicationinsights_js__["AppInsights"].downloadAndSetup({ instrumentationKey: "3e88c674-ebeb-468a-8435-bc768a67aa17" });
+        __WEBPACK_IMPORTED_MODULE_1_applicationinsights_js__["AppInsights"].downloadAndSetup({ instrumentationKey: "bfa641ff-5360-49c0-bc5c-0289900aa05e" });
         this.uploader = new __WEBPACK_IMPORTED_MODULE_6_ng2_file_upload__["FileUploader"]({ url: "/api/upload", disableMultipart: false });
         this.uploader.onAfterAddingFile = this.onAfterAddingFile.bind(this);
         this.uploader.onBeforeUploadItem = this.onBeforeUploadItem.bind(this);
@@ -527,6 +533,7 @@ var ApplicationInsightComponent = (function () {
         this.stopPage = Date.now();
         __WEBPACK_IMPORTED_MODULE_1_applicationinsights_js__["AppInsights"].startTrackPage("application-insight");
         __WEBPACK_IMPORTED_MODULE_1_applicationinsights_js__["AppInsights"].trackPageView("ApplicationInsightComponent", /*nome della pagina */ "application-insight", /*url della pagina */ { nomeFunzione: "pageView", nomeComponents: "ApplicationInsightComponent", user: JSON.stringify(this._userService) }, /* (optional) proprieta evento */ { numeroEccezioniSessioneCorrente: this.counterException }, /* (optional) dizionario di metriche */ this.stopPage - this.startPage);
+        __WEBPACK_IMPORTED_MODULE_1_applicationinsights_js__["AppInsights"].setAuthenticatedUserContext(this._userService.Username);
         //Per vederla subito su portale
         __WEBPACK_IMPORTED_MODULE_1_applicationinsights_js__["AppInsights"].flush();
         this.snackBar.open("pageView", "pageView", { duration: this.stopPage - this.startPage });
@@ -536,6 +543,7 @@ var ApplicationInsightComponent = (function () {
     };
     ApplicationInsightComponent.prototype.getProducts = function () {
         var _this = this;
+        __WEBPACK_IMPORTED_MODULE_1_applicationinsights_js__["AppInsights"].startTrackEvent("CaricamentoProdotti");
         this.snackBar.open("Caricamento Dati", "Loading", { duration: 2000 });
         this.dialog.open(__WEBPACK_IMPORTED_MODULE_5__http_spinner_http_spinner_component__["a" /* HttpSpinnerComponent */]);
         var startDate = Date.now();
@@ -546,6 +554,7 @@ var ApplicationInsightComponent = (function () {
             _this.products = products;
             _this.dialog.closeAll();
             var differenceDate = stopDate - startDate;
+            __WEBPACK_IMPORTED_MODULE_1_applicationinsights_js__["AppInsights"].stopTrackEvent("CaricamentoProdotti");
             // this.log.Debug({ 
             //     msg: "Caricamento dati in " + differenceDate + " ms" ,
             //     user : this._userService,                    
@@ -555,6 +564,8 @@ var ApplicationInsightComponent = (function () {
         }, function (error) {
             _this.errorMessage = error;
             // this.log.Error(this.errorMessage);
+            __WEBPACK_IMPORTED_MODULE_1_applicationinsights_js__["AppInsights"].trackException(new Error(_this.errorMessage));
+            __WEBPACK_IMPORTED_MODULE_1_applicationinsights_js__["AppInsights"].stopTrackEvent("CaricamentoProdotti");
         });
     };
     ApplicationInsightComponent.prototype.fileOverBase = function (e) {
@@ -649,7 +660,7 @@ var ApplicationInsightComponent = (function () {
 
 /***/ },
 
-/***/ 787:
+/***/ 788:
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -814,7 +825,7 @@ var JSNlogComponent = (function () {
 
 /***/ },
 
-/***/ 788:
+/***/ 789:
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -861,7 +872,7 @@ var UserComponent = (function () {
 
 /***/ },
 
-/***/ 789:
+/***/ 790:
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -877,7 +888,7 @@ var environment = {
 
 /***/ },
 
-/***/ 790:
+/***/ 791:
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";

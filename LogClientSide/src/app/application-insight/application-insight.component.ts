@@ -33,7 +33,7 @@ export class ApplicationInsightComponent implements OnInit, OnDestroy  {
 
     constructor(private _productService: ProductServiceApplicationInsight, private _userService: UserService, public snackBar: MdSnackBar, public dialog: MdDialog) {
         this.startPage = Date.now();
-        AppInsights.downloadAndSetup({ instrumentationKey: "3e88c674-ebeb-468a-8435-bc768a67aa17" });
+        AppInsights.downloadAndSetup({ instrumentationKey: "bfa641ff-5360-49c0-bc5c-0289900aa05e" });
         this.uploader = new FileUploader({ url: "/api/upload", disableMultipart: false });
         this.uploader.onAfterAddingFile = this.onAfterAddingFile.bind(this);
         this.uploader.onBeforeUploadItem = this.onBeforeUploadItem.bind(this);
@@ -51,6 +51,7 @@ export class ApplicationInsightComponent implements OnInit, OnDestroy  {
             { numeroEccezioniSessioneCorrente: this.counterException }, /* (optional) dizionario di metriche */
             this.stopPage - this.startPage          
         );
+        AppInsights.setAuthenticatedUserContext(this._userService.Username);
 
         //Per vederla subito su portale
         AppInsights.flush();
@@ -63,6 +64,8 @@ export class ApplicationInsightComponent implements OnInit, OnDestroy  {
     
 
     public getProducts() {
+        AppInsights.startTrackEvent("CaricamentoProdotti");
+        
         this.snackBar.open("Caricamento Dati", "Loading", { duration: 2000 });
         this.dialog.open(HttpSpinnerComponent);
         let startDate = Date.now();
@@ -76,6 +79,8 @@ export class ApplicationInsightComponent implements OnInit, OnDestroy  {
                 this.dialog.closeAll();
                 let differenceDate = stopDate - startDate;
                 
+                AppInsights.stopTrackEvent("CaricamentoProdotti");
+                
                 // this.log.Debug({ 
                 //     msg: "Caricamento dati in " + differenceDate + " ms" ,
                 //     user : this._userService,                    
@@ -86,6 +91,8 @@ export class ApplicationInsightComponent implements OnInit, OnDestroy  {
             error => {
                 this.errorMessage = <any>error;
                 // this.log.Error(this.errorMessage);
+                AppInsights.trackException(new Error(this.errorMessage));
+                AppInsights.stopTrackEvent("CaricamentoProdotti");
             });
     }
 
