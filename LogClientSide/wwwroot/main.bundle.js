@@ -22,7 +22,7 @@ module.exports = __webpack_require__(626);
 
 /***/ },
 
-/***/ 194:
+/***/ 193:
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -38,7 +38,7 @@ var PaginationData = (function () {
 
 /***/ },
 
-/***/ 195:
+/***/ 194:
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -159,11 +159,11 @@ var JSLoggerService = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(128);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_catch__ = __webpack_require__(211);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_catch__ = __webpack_require__(210);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_catch___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_catch__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map__ = __webpack_require__(76);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__Models_PaginationData__ = __webpack_require__(194);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__Models_PaginationData__ = __webpack_require__(193);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_applicationinsights_js__ = __webpack_require__(492);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_applicationinsights_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_applicationinsights_js__);
 /* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return ProductServiceApplicationInsight; });
@@ -235,11 +235,11 @@ var ProductServiceApplicationInsight = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(128);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_catch__ = __webpack_require__(211);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_catch__ = __webpack_require__(210);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_catch___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_catch__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map__ = __webpack_require__(76);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__Models_PaginationData__ = __webpack_require__(194);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__Models_PaginationData__ = __webpack_require__(193);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__jslogger_service__ = __webpack_require__(292);
 /* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return ProductService; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -390,7 +390,7 @@ var AppComponent = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(17);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(128);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_material__ = __webpack_require__(133);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_material__ = __webpack_require__(274);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_router__ = __webpack_require__(775);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_ng2_bootstrap__ = __webpack_require__(955);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_angular2_serverpagination_datatable__ = __webpack_require__(792);
@@ -402,7 +402,7 @@ var AppComponent = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__jslogger_service__ = __webpack_require__(292);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__product_service__ = __webpack_require__(488);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__product_application_insight_service__ = __webpack_require__(487);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__user_service__ = __webpack_require__(195);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__user_service__ = __webpack_require__(194);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__http_spinner_http_spinner_component__ = __webpack_require__(291);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_17_ng2_file_upload__ = __webpack_require__(333);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_17_ng2_file_upload___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_17_ng2_file_upload__);
@@ -483,13 +483,13 @@ var AppModule = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_applicationinsights_js__ = __webpack_require__(492);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_applicationinsights_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_applicationinsights_js__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_material__ = __webpack_require__(133);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_material__ = __webpack_require__(274);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__product_application_insight_service__ = __webpack_require__(487);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__Models_PaginationData__ = __webpack_require__(194);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__Models_PaginationData__ = __webpack_require__(193);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__http_spinner_http_spinner_component__ = __webpack_require__(291);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_ng2_file_upload__ = __webpack_require__(333);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_ng2_file_upload___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_ng2_file_upload__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__user_service__ = __webpack_require__(195);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__user_service__ = __webpack_require__(194);
 /* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return ApplicationInsightComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -508,17 +508,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-
 var ApplicationInsightComponent = (function () {
-    function ApplicationInsightComponent(_productService, _userService, snackBar, dialog) {
+    function ApplicationInsightComponent(_productService, _userService, dialog) {
         this._productService = _productService;
         this._userService = _userService;
-        this.snackBar = snackBar;
         this.dialog = dialog;
         this.products = new __WEBPACK_IMPORTED_MODULE_4__Models_PaginationData__["a" /* PaginationData */](new Array(), 0);
         this.rowsOnPage = 5;
         this.activePage = 1;
         this.counterException = 1;
+        this.loadProducts = 0;
+        this.loadErrors = 0;
+        this.loadFiles = 0;
         this.hasBaseDropZoneOver = false;
         this.hasAnotherDropZoneOver = false;
         this.startPage = Date.now();
@@ -536,15 +537,12 @@ var ApplicationInsightComponent = (function () {
         __WEBPACK_IMPORTED_MODULE_1_applicationinsights_js__["AppInsights"].setAuthenticatedUserContext(this._userService.Username);
         //Per vederla subito su portale
         __WEBPACK_IMPORTED_MODULE_1_applicationinsights_js__["AppInsights"].flush();
-        this.snackBar.open("pageView", "pageView", { duration: this.stopPage - this.startPage });
-    };
-    ApplicationInsightComponent.prototype.ngOnDestroy = function () {
-        __WEBPACK_IMPORTED_MODULE_1_applicationinsights_js__["AppInsights"].stopTrackPage("application-insight");
     };
     ApplicationInsightComponent.prototype.getProducts = function () {
         var _this = this;
         __WEBPACK_IMPORTED_MODULE_1_applicationinsights_js__["AppInsights"].startTrackEvent("CaricamentoProdotti");
-        this.snackBar.open("Caricamento Dati", "Loading", { duration: 2000 });
+        this.loadProducts += 1;
+        __WEBPACK_IMPORTED_MODULE_1_applicationinsights_js__["AppInsights"].trackMetric("loadProductData", null, this.loadProducts, null, null, { "user": JSON.stringify(this._userService) });
         this.dialog.open(__WEBPACK_IMPORTED_MODULE_5__http_spinner_http_spinner_component__["a" /* HttpSpinnerComponent */]);
         var startDate = Date.now();
         var skip = this.rowsOnPage * (this.activePage - 1);
@@ -554,16 +552,10 @@ var ApplicationInsightComponent = (function () {
             _this.products = products;
             _this.dialog.closeAll();
             var differenceDate = stopDate - startDate;
+            __WEBPACK_IMPORTED_MODULE_1_applicationinsights_js__["AppInsights"].trackEvent("loadProductDataEvent", { "user": JSON.stringify(_this._userService) }, { "duration": differenceDate, "loadCounter": _this.loadProducts });
             __WEBPACK_IMPORTED_MODULE_1_applicationinsights_js__["AppInsights"].stopTrackEvent("CaricamentoProdotti");
-            // this.log.Debug({ 
-            //     msg: "Caricamento dati in " + differenceDate + " ms" ,
-            //     user : this._userService,                    
-            //     userAgent : window.navigator.userAgent,
-            //     route : window.location.pathname
-            // });    
         }, function (error) {
             _this.errorMessage = error;
-            // this.log.Error(this.errorMessage);
             __WEBPACK_IMPORTED_MODULE_1_applicationinsights_js__["AppInsights"].trackException(new Error(_this.errorMessage));
             __WEBPACK_IMPORTED_MODULE_1_applicationinsights_js__["AppInsights"].stopTrackEvent("CaricamentoProdotti");
         });
@@ -577,71 +569,55 @@ var ApplicationInsightComponent = (function () {
     ApplicationInsightComponent.prototype.onPageChange = function (event) {
         this.rowsOnPage = event.rowsOnPage;
         this.activePage = event.activePage;
+        var currentDate = Date.now();
         this.getProducts();
-        // this.log.Info({ msg: "Caricamento pagina successiva", currentPage: this.activePage, user : this._userService});    
+        __WEBPACK_IMPORTED_MODULE_1_applicationinsights_js__["AppInsights"].trackMetric("skipPage", this.activePage, 1, 0, this.products.totalItems, {
+            "products": (Date.now() - currentDate).toString(),
+            "user": JSON.stringify(this._userService)
+        });
     };
     ApplicationInsightComponent.prototype.onAfterAddingFile = function (fileItem) {
-        this.snackBar.open("File" + fileItem.file.name + " aggiunto", "Ok", { duration: 2000 });
-        // this.log.Debug({
-        //     msg: "Adding File", 
-        //     file: fileItem.file, 
-        //     user : this._userService, 
-        //     userAgent : window.navigator.userAgent,
-        //     route : window.location.pathname                
-        // });
+        __WEBPACK_IMPORTED_MODULE_1_applicationinsights_js__["AppInsights"].trackTrace("Aggiunto file" + fileItem.file.name);
     };
     ApplicationInsightComponent.prototype.onBeforeUploadItem = function (fileItem) {
-        this.snackBar.open("Il File" + fileItem.file.name + " si sta caricando", "Loading", { duration: 2000 });
         __WEBPACK_IMPORTED_MODULE_1_applicationinsights_js__["AppInsights"].startTrackEvent(fileItem.file.name);
-        // this.log.Debug({ 
-        //     msg: "Before File", 
-        //     file: fileItem.file, 
-        //     user : this._userService,
-        //     userAgent : window.navigator.userAgent,
-        //     route : window.location.pathname    
-        // });
+        __WEBPACK_IMPORTED_MODULE_1_applicationinsights_js__["AppInsights"].trackEvent("beginLoadFile", { "user": JSON.stringify(this._userService) }, { "duration": this.stopUpload - this.startUpload, "loadCounter": this.loadFiles });
+        this.loadFiles += 1;
         this.startUpload = Date.now();
     };
     ApplicationInsightComponent.prototype.onCompleteItem = function (fileItem) {
         this.stopUpload = Date.now();
-        this.snackBar.open("Caricamento completato", "Ok", { duration: 2000 });
-        __WEBPACK_IMPORTED_MODULE_1_applicationinsights_js__["AppInsights"].stopTrackPage(fileItem.file.name);
-        // this.log.Debug({ 
-        //     msg: "File caricato in " + (this.stopUpload - this.startUpload) + " ms", 
-        //     file: fileItem.file, 
-        //     user : this._userService,
-        //     userAgent : window.navigator.userAgent,
-        //     route : window.location.pathname
-        //  });
+        __WEBPACK_IMPORTED_MODULE_1_applicationinsights_js__["AppInsights"].trackEvent(fileItem.file.name);
+        __WEBPACK_IMPORTED_MODULE_1_applicationinsights_js__["AppInsights"].trackEvent("loadFileComplete", { "user": JSON.stringify(this._userService) }, { "duration": this.stopUpload - this.startUpload, "loadCounter": this.loadFiles });
+        __WEBPACK_IMPORTED_MODULE_1_applicationinsights_js__["AppInsights"].trackMetric("loadFileCounter", null, this.loadFiles, null, null, {
+            "duration": (this.stopUpload - this.startUpload).toString(),
+            "loadCounter": this.loadFiles.toString()
+        });
     };
     ApplicationInsightComponent.prototype.onErrorItem = function (item, response, status, headers) {
-        this.snackBar.open("Il File" + item.file.name + " non è stato caricato", "Error", { duration: 2000 });
-        // this.log.Error({ msg: "Error File", 
-        //     file: item.file, 
-        //     user : this._userService,
-        //     userAgent : window.navigator.userAgent,
-        //     route : window.location.pathname
-        // });
+        __WEBPACK_IMPORTED_MODULE_1_applicationinsights_js__["AppInsights"].trackException(new Error(status + response), null, { filename: item.file.name, size: item.file.size }, null, AI.SeverityLevel.Critical // Solo in questo metodo è possibile specificare la SeverityLevel
+        );
     };
     ApplicationInsightComponent.prototype.loadError = function () {
         var _this = this;
-        // this.log.Error({ 
-        //     msg: "Simulazione Errore", 
-        //     user : this._userService,
-        //     userAgent : window.navigator.userAgent,
-        //     route : window.location.pathname
-        // });
-        this.snackBar.open("Simulazione Errore", "Errors", { duration: 2000 });
+        __WEBPACK_IMPORTED_MODULE_1_applicationinsights_js__["AppInsights"].startTrackEvent("SimulazioneErrore");
+        this.loadErrors += 1;
         this.dialog.open(__WEBPACK_IMPORTED_MODULE_5__http_spinner_http_spinner_component__["a" /* HttpSpinnerComponent */]);
+        var startDate = Date.now();
         var skip = this.rowsOnPage * (this.activePage - 1);
         this._productService.getProductsError()
             .subscribe(function (products) {
+            var stopDate = Date.now();
             _this.products = products;
             _this.dialog.closeAll();
+            var differenceDate = stopDate - startDate;
+            __WEBPACK_IMPORTED_MODULE_1_applicationinsights_js__["AppInsights"].trackEvent("loadProductErrorEvent", { "user": JSON.stringify(_this._userService) }, { "duration": differenceDate });
+            __WEBPACK_IMPORTED_MODULE_1_applicationinsights_js__["AppInsights"].stopTrackEvent("SimulazioneErrore");
         }, function (error) {
             _this.errorMessage = error;
             _this.counterException += 1;
             __WEBPACK_IMPORTED_MODULE_1_applicationinsights_js__["AppInsights"].trackException(new Error(_this.errorMessage + _this.counterException.toString()), null, null, null, AI.SeverityLevel.Error);
+            __WEBPACK_IMPORTED_MODULE_1_applicationinsights_js__["AppInsights"].stopTrackEvent("SimulazioneErrore");
             _this.dialog.closeAll();
         });
     };
@@ -651,10 +627,10 @@ var ApplicationInsightComponent = (function () {
             template: __webpack_require__(981),
             styles: [__webpack_require__(976)]
         }), 
-        __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_3__product_application_insight_service__["a" /* ProductServiceApplicationInsight */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_3__product_application_insight_service__["a" /* ProductServiceApplicationInsight */]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_7__user_service__["a" /* UserService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_7__user_service__["a" /* UserService */]) === 'function' && _b) || Object, (typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__angular_material__["MdSnackBar"] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__angular_material__["MdSnackBar"]) === 'function' && _c) || Object, (typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2__angular_material__["MdDialog"] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__angular_material__["MdDialog"]) === 'function' && _d) || Object])
+        __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_3__product_application_insight_service__["a" /* ProductServiceApplicationInsight */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_3__product_application_insight_service__["a" /* ProductServiceApplicationInsight */]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_7__user_service__["a" /* UserService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_7__user_service__["a" /* UserService */]) === 'function' && _b) || Object, (typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__angular_material__["MdDialog"] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__angular_material__["MdDialog"]) === 'function' && _c) || Object])
     ], ApplicationInsightComponent);
     return ApplicationInsightComponent;
-    var _a, _b, _c, _d;
+    var _a, _b, _c;
 }());
 //# sourceMappingURL=E:/Progetti/GitHub/LogClientSideFull/LogClientSide/src/application-insight.component.js.map
 
@@ -666,13 +642,13 @@ var ApplicationInsightComponent = (function () {
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__jslogger_service__ = __webpack_require__(292);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_material__ = __webpack_require__(133);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_material__ = __webpack_require__(274);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__product_service__ = __webpack_require__(488);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__Models_PaginationData__ = __webpack_require__(194);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__Models_PaginationData__ = __webpack_require__(193);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__http_spinner_http_spinner_component__ = __webpack_require__(291);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_ng2_file_upload__ = __webpack_require__(333);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_ng2_file_upload___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_ng2_file_upload__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__user_service__ = __webpack_require__(195);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__user_service__ = __webpack_require__(194);
 /* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return JSNlogComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -691,13 +667,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-
 var JSNlogComponent = (function () {
-    function JSNlogComponent(log, _productService, _userService, snackBar, dialog) {
+    function JSNlogComponent(log, _productService, _userService, dialog) {
         this.log = log;
         this._productService = _productService;
         this._userService = _userService;
-        this.snackBar = snackBar;
         this.dialog = dialog;
         this.products = new __WEBPACK_IMPORTED_MODULE_4__Models_PaginationData__["a" /* PaginationData */](new Array(), 0);
         this.rowsOnPage = 5;
@@ -715,7 +689,6 @@ var JSNlogComponent = (function () {
     };
     JSNlogComponent.prototype.getProducts = function () {
         var _this = this;
-        this.snackBar.open("Caricamento Dati", "Loading", { duration: 2000 });
         this.dialog.open(__WEBPACK_IMPORTED_MODULE_5__http_spinner_http_spinner_component__["a" /* HttpSpinnerComponent */]);
         var startDate = Date.now();
         var skip = this.rowsOnPage * (this.activePage - 1);
@@ -749,7 +722,6 @@ var JSNlogComponent = (function () {
         this.log.Info({ msg: "Caricamento pagina successiva", currentPage: this.activePage, user: this._userService });
     };
     JSNlogComponent.prototype.onAfterAddingFile = function (fileItem) {
-        this.snackBar.open("File" + fileItem.file.name + " aggiunto", "Ok", { duration: 2000 });
         this.log.Debug({
             msg: "Adding File",
             file: fileItem.file,
@@ -759,7 +731,6 @@ var JSNlogComponent = (function () {
         });
     };
     JSNlogComponent.prototype.onBeforeUploadItem = function (fileItem) {
-        this.snackBar.open("Il File" + fileItem.file.name + " si sta caricando", "Loading", { duration: 2000 });
         this.log.Debug({
             msg: "Before File",
             file: fileItem.file,
@@ -771,7 +742,6 @@ var JSNlogComponent = (function () {
     };
     JSNlogComponent.prototype.onCompleteItem = function (fileItem) {
         this.stopUpload = Date.now();
-        this.snackBar.open("Caricamento completato", "Ok", { duration: 2000 });
         this.log.Debug({
             msg: "File caricato in " + (this.stopUpload - this.startUpload) + " ms",
             file: fileItem.file,
@@ -781,7 +751,6 @@ var JSNlogComponent = (function () {
         });
     };
     JSNlogComponent.prototype.onErrorItem = function (item, response, status, headers) {
-        this.snackBar.open("Il File" + item.file.name + " non è stato caricato", "Error", { duration: 2000 });
         this.log.Error({ msg: "Error File",
             file: item.file,
             user: this._userService,
@@ -797,7 +766,6 @@ var JSNlogComponent = (function () {
             userAgent: window.navigator.userAgent,
             route: window.location.pathname
         });
-        this.snackBar.open("Simulazione Errore", "Errors", { duration: 2000 });
         this.dialog.open(__WEBPACK_IMPORTED_MODULE_5__http_spinner_http_spinner_component__["a" /* HttpSpinnerComponent */]);
         var skip = this.rowsOnPage * (this.activePage - 1);
         this._productService.getProductsError()
@@ -816,10 +784,10 @@ var JSNlogComponent = (function () {
             template: __webpack_require__(983),
             styles: [__webpack_require__(978)]
         }), 
-        __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__jslogger_service__["a" /* JSLoggerService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__jslogger_service__["a" /* JSLoggerService */]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__product_service__["a" /* ProductService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_3__product_service__["a" /* ProductService */]) === 'function' && _b) || Object, (typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_7__user_service__["a" /* UserService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_7__user_service__["a" /* UserService */]) === 'function' && _c) || Object, (typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2__angular_material__["MdSnackBar"] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__angular_material__["MdSnackBar"]) === 'function' && _d) || Object, (typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_2__angular_material__["MdDialog"] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__angular_material__["MdDialog"]) === 'function' && _e) || Object])
+        __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__jslogger_service__["a" /* JSLoggerService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__jslogger_service__["a" /* JSLoggerService */]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__product_service__["a" /* ProductService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_3__product_service__["a" /* ProductService */]) === 'function' && _b) || Object, (typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_7__user_service__["a" /* UserService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_7__user_service__["a" /* UserService */]) === 'function' && _c) || Object, (typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2__angular_material__["MdDialog"] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__angular_material__["MdDialog"]) === 'function' && _d) || Object])
     ], JSNlogComponent);
     return JSNlogComponent;
-    var _a, _b, _c, _d, _e;
+    var _a, _b, _c, _d;
 }());
 //# sourceMappingURL=E:/Progetti/GitHub/LogClientSideFull/LogClientSide/src/jsnlog.component.js.map
 
@@ -830,7 +798,7 @@ var JSNlogComponent = (function () {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__user_service__ = __webpack_require__(195);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__user_service__ = __webpack_require__(194);
 /* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return UserComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;

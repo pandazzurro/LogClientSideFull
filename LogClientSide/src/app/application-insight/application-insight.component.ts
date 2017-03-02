@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 /* import AppInsights */
 import { AppInsights } from "applicationinsights-js";
 import { MdSnackBar } from '@angular/material';
@@ -15,7 +15,7 @@ import { UserService } from '../user.service';
     templateUrl: './application-insight.component.html',
     styleUrls: ['./application-insight.component.css']
 })
-export class ApplicationInsightComponent implements OnInit, OnDestroy  {
+export class ApplicationInsightComponent implements OnInit  {
     public products: PaginationData<Product> = new PaginationData<Product>(new Array<Product>() , 0);
     errorMessage: any;
     public rowsOnPage = 5;
@@ -25,13 +25,16 @@ export class ApplicationInsightComponent implements OnInit, OnDestroy  {
     public startPage : number;
     public stopPage : number;
     public counterException: number = 1;
+    public loadProducts : number = 0;
+    public loadErrors : number = 0;
+    public loadFiles : number = 0;
 
     public uploader: FileUploader;
     public hasBaseDropZoneOver: boolean = false;
     public hasAnotherDropZoneOver: boolean = false;
 
 
-    constructor(private _productService: ProductServiceApplicationInsight, private _userService: UserService, public snackBar: MdSnackBar, public dialog: MdDialog) {
+    constructor(private _productService: ProductServiceApplicationInsight, private _userService: UserService, public dialog: MdDialog) {
         this.startPage = Date.now();
         AppInsights.downloadAndSetup({ instrumentationKey: "bfa641ff-5360-49c0-bc5c-0289900aa05e" });
         this.uploader = new FileUploader({ url: "/api/upload", disableMultipart: false });
@@ -54,19 +57,15 @@ export class ApplicationInsightComponent implements OnInit, OnDestroy  {
         AppInsights.setAuthenticatedUserContext(this._userService.Username);
 
         //Per vederla subito su portale
-        AppInsights.flush();
-        this.snackBar.open("pageView", "pageView", { duration: this.stopPage - this.startPage });
-    }
-
-    ngOnDestroy(){
-        AppInsights.stopTrackPage("application-insight");
+        AppInsights.flush();        
     }
     
-
     public getProducts() {
         AppInsights.startTrackEvent("CaricamentoProdotti");
+        this.loadProducts +=1;
+
+        AppInsights.trackMetric("loadProductData", null, this.loadProducts, null, null, { "user" : JSON.stringify(this._userService) });
         
-        this.snackBar.open("Caricamento Dati", "Loading", { duration: 2000 });
         this.dialog.open(HttpSpinnerComponent);
         let startDate = Date.now();
 
@@ -78,19 +77,15 @@ export class ApplicationInsightComponent implements OnInit, OnDestroy  {
                 this.products = products;                
                 this.dialog.closeAll();
                 let differenceDate = stopDate - startDate;
-                
+                AppInsights.trackEvent("loadProductDataEvent", 
+                    { "user" : JSON.stringify(this._userService) }, 
+                    { "duration" : differenceDate, "loadCounter" : this.loadProducts }
+                );
+
                 AppInsights.stopTrackEvent("CaricamentoProdotti");
-                
-                // this.log.Debug({ 
-                //     msg: "Caricamento dati in " + differenceDate + " ms" ,
-                //     user : this._userService,                    
-                //     userAgent : window.navigator.userAgent,
-                //     route : window.location.pathname
-                // });    
             },
             error => {
-                this.errorMessage = <any>error;
-                // this.log.Error(this.errorMessage);
+                this.errorMessage = <any>error;                
                 AppInsights.trackException(new Error(this.errorMessage));
                 AppInsights.stopTrackEvent("CaricamentoProdotti");
             });
@@ -107,146 +102,82 @@ export class ApplicationInsightComponent implements OnInit, OnDestroy  {
     public onPageChange(event) {
         this.rowsOnPage = event.rowsOnPage;
         this.activePage = event.activePage;
+        let currentDate = Date.now();
         this.getProducts();
         
-        // this.log.Info({ msg: "Caricamento pagina successiva", currentPage: this.activePage, user : this._userService});    
+        AppInsights.trackMetric("skipPage", this.activePage, 1, 0, this.products.totalItems, 
+        { 
+            "products" : (Date.now() - currentDate).toString(),
+            "user" : JSON.stringify(this._userService)
+        });        
     }
 
     public onAfterAddingFile(fileItem: FileItem): void {
-        this.snackBar.open("File" + fileItem.file.name + " aggiunto", "Ok", { duration: 2000 });
-        
-        // this.log.Debug({
-        //     msg: "Adding File", 
-        //     file: fileItem.file, 
-        //     user : this._userService, 
-        //     userAgent : window.navigator.userAgent,
-        //     route : window.location.pathname                
-        // });
+        AppInsights.trackTrace("Aggiunto file" + fileItem.file.name);
     }
     public onBeforeUploadItem(fileItem: FileItem): void {
-        this.snackBar.open("Il File" + fileItem.file.name + " si sta caricando", "Loading", { duration: 2000 });
         AppInsights.startTrackEvent(fileItem.file.name);
-        
-        // this.log.Debug({ 
-        //     msg: "Before File", 
-        //     file: fileItem.file, 
-        //     user : this._userService,
-        //     userAgent : window.navigator.userAgent,
-        //     route : window.location.pathname    
-        // });
+
+        AppInsights.trackEvent("beginLoadFile", 
+            { "user" : JSON.stringify(this._userService) }, 
+            { "duration" : this.stopUpload - this.startUpload, "loadCounter" : this.loadFiles }
+        ); 
+
+        this.loadFiles +=1;
         this.startUpload = Date.now();
     }
     public onCompleteItem(fileItem: FileItem): void {
         this.stopUpload = Date.now();
-        this.snackBar.open("Caricamento completato", "Ok", { duration: 2000 });
-        AppInsights.stopTrackPage(fileItem.file.name);
-        // this.log.Debug({ 
-        //     msg: "File caricato in " + (this.stopUpload - this.startUpload) + " ms", 
-        //     file: fileItem.file, 
-        //     user : this._userService,
-        //     userAgent : window.navigator.userAgent,
-        //     route : window.location.pathname
-        //  });
-    }
+        AppInsights.trackEvent(fileItem.file.name);
+        
+        AppInsights.trackEvent("loadFileComplete", 
+            { "user" : JSON.stringify(this._userService) }, 
+            { "duration" : this.stopUpload - this.startUpload, "loadCounter" : this.loadFiles }
+        ); 
+
+        AppInsights.trackMetric("loadFileCounter", null, this.loadFiles, null, null, 
+        { 
+            "duration" : (this.stopUpload - this.startUpload).toString(), 
+            "loadCounter" : this.loadFiles.toString()
+        });
+   }
     public onErrorItem(item: FileItem, response: string, status: number, headers: ParsedResponseHeaders): void {
-        this.snackBar.open("Il File" + item.file.name + " non è stato caricato", "Error", { duration: 2000 });
-        // this.log.Error({ msg: "Error File", 
-        //     file: item.file, 
-        //     user : this._userService,
-        //     userAgent : window.navigator.userAgent,
-        //     route : window.location.pathname
-        // });
+        AppInsights.trackException(new Error(status + response), null, 
+            { filename : item.file.name, size : item.file.size},
+            null, 
+            AI.SeverityLevel.Critical // Solo in questo metodo è possibile specificare la SeverityLevel
+        );
     }
 
     public loadError() {
-        // this.log.Error({ 
-        //     msg: "Simulazione Errore", 
-        //     user : this._userService,
-        //     userAgent : window.navigator.userAgent,
-        //     route : window.location.pathname
-        // });
-        this.snackBar.open("Simulazione Errore", "Errors", { duration: 2000 });
-
+        AppInsights.startTrackEvent("SimulazioneErrore");
+        this.loadErrors +=1;
+        
         this.dialog.open(HttpSpinnerComponent);
+        let startDate = Date.now();
 
         var skip: number = this.rowsOnPage * (this.activePage - 1);
         this._productService.getProductsError()
             .subscribe(
             products => {
+                let stopDate = Date.now();
                 this.products = products;                
                 this.dialog.closeAll();
+                
+                let differenceDate = stopDate - startDate;
+                AppInsights.trackEvent("loadProductErrorEvent", 
+                    { "user" : JSON.stringify(this._userService) }, 
+                    { "duration" : differenceDate }
+                );
+
+                AppInsights.stopTrackEvent("SimulazioneErrore");
             },
             error => {
                 this.errorMessage = <any>error;
                 this.counterException += 1;
-                AppInsights.trackException(new Error(this.errorMessage + this.counterException.toString()), null, null, null, AI.SeverityLevel.Error);
+                AppInsights.trackException(new Error(this.errorMessage + this.counterException.toString()), null, null, null, AI.SeverityLevel.Error);                 
+                AppInsights.stopTrackEvent("SimulazioneErrore");
                 this.dialog.closeAll();
             });
     }
-
-
-    // counterException: number = 1;
-    // constructor(public snackBar: MdSnackBar) {
-    //     AppInsights.downloadAndSetup({ instrumentationKey: "3e88c674-ebeb-468a-8435-bc768a67aa17" });
-    // }
-
-    // ngOnInit() {
-    //     this.pageView();
-    // }
-
-    // public pageView() {
-    //     AppInsights.trackPageView(
-    //         "ApplicationInsightComponent", /*nome della pagina */
-    //         "application-insight", /*url della pagina */
-    //         { nomeFunzione: "pageView", nomeComponents: "ApplicationInsightComponent" }, /* (optional) proprieta evento */
-    //         { numeroEccezioniSessioneCorrente: this.counterException }, /* (optional) dizionario di metriche */
-    //         2345 /* durata caricamento pagina in millisecondi */
-    //     );
-
-    //     //Per vederla subito su portale
-    //     AppInsights.flush();
-
-    //     this.snackBar.open("pageView", "pageView", { duration: 2000});
-    // }
-
-    // /// Inserisce una informazione di tracciatura
-    // public sendTrace() {
-    //     var proprietaTraccia : any = { nomeFunzione: "tracciaEvento", nomeComponents: "ApplicationInsightComponent" };
-    //     AppInsights.trackTrace("Traccia", proprietaTraccia);
-
-
-    //     //Per vederla subito su portale
-    //     AppInsights.flush();
-
-    //      this.snackBar.open("sendTrace", "sendTrace", { duration: 2000});
-    // }
-
-    // ///Inserisce un evento generico
-    // public sendEvent() {
-    //     AppInsights.trackEvent("Evento di test",
-    //         { prop1: "prop1", prop2: "prop2" },
-    //         { measurement1: 100 }
-    //     );
-
-
-    //     //Per vederla subito su portale
-    //     AppInsights.flush();
-
-    //     this.snackBar.open("sendEvent", "sendEvent", { duration: 2000});
-    // }
-
-    // ///Inserisce una eccezione
-    // public sendException() {
-    //     this.counterException = this.counterException + 1;
-    //     AppInsights.startTrackEvent("Eccezione" + this.counterException);
-    //     AppInsights.trackException(new Error("Messaggio di errore" + this.counterException ));
-    //     AppInsights.stopTrackEvent("Eccezione" + this.counterException.toString(),
-    //         { numeroEccezioniSessioneCorrente: this.counterException.toString() }
-    //     );
-
-    //     //Per vederla subito su portale
-    //     AppInsights.flush();
-
-    //     this.snackBar.open("sendException", "sendException", { duration: 2000});
-    // }
 }

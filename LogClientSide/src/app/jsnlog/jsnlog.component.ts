@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { JSLoggerService } from '../jslogger.service';
-import { MdSnackBar } from '@angular/material';
 import { MdDialog } from '@angular/material';
 import { ProductService } from '../product.service';
 import { Product } from '../Models/Product';
@@ -26,7 +25,7 @@ export class JSNlogComponent implements OnInit {
     public hasBaseDropZoneOver: boolean = false;
     public hasAnotherDropZoneOver: boolean = false;
 
-    constructor(private log: JSLoggerService, private _productService: ProductService, private _userService: UserService, public snackBar: MdSnackBar, public dialog: MdDialog) {
+    constructor(private log: JSLoggerService, private _productService: ProductService, private _userService: UserService,  public dialog: MdDialog) {
         this.uploader = new FileUploader({ url: "/api/upload", disableMultipart: false });
         this.uploader.onAfterAddingFile = this.onAfterAddingFile.bind(this);
         this.uploader.onBeforeUploadItem = this.onBeforeUploadItem.bind(this);
@@ -40,7 +39,6 @@ export class JSNlogComponent implements OnInit {
     }
 
     public getProducts() {
-        this.snackBar.open("Caricamento Dati", "Loading", { duration: 2000 });
         this.dialog.open(HttpSpinnerComponent);
         let startDate = Date.now();
 
@@ -82,7 +80,6 @@ export class JSNlogComponent implements OnInit {
     }
 
     public onAfterAddingFile(fileItem: FileItem): void {
-        this.snackBar.open("File" + fileItem.file.name + " aggiunto", "Ok", { duration: 2000 });
         this.log.Debug({
             msg: "Adding File", 
             file: fileItem.file, 
@@ -92,7 +89,6 @@ export class JSNlogComponent implements OnInit {
         });
     }
     public onBeforeUploadItem(fileItem: FileItem): void {
-        this.snackBar.open("Il File" + fileItem.file.name + " si sta caricando", "Loading", { duration: 2000 });
         this.log.Debug({ 
             msg: "Before File", 
             file: fileItem.file, 
@@ -104,7 +100,6 @@ export class JSNlogComponent implements OnInit {
     }
     public onCompleteItem(fileItem: FileItem): void {
         this.stopUpload = Date.now();
-        this.snackBar.open("Caricamento completato", "Ok", { duration: 2000 });
         this.log.Debug({ 
             msg: "File caricato in " + (this.stopUpload - this.startUpload) + " ms", 
             file: fileItem.file, 
@@ -114,7 +109,6 @@ export class JSNlogComponent implements OnInit {
          });
     }
     public onErrorItem(item: FileItem, response: string, status: number, headers: ParsedResponseHeaders): void {
-        this.snackBar.open("Il File" + item.file.name + " non è stato caricato", "Error", { duration: 2000 });
         this.log.Error({ msg: "Error File", 
             file: item.file, 
             user : this._userService,
@@ -130,8 +124,7 @@ export class JSNlogComponent implements OnInit {
             userAgent : window.navigator.userAgent,
             route : window.location.pathname
         });
-        this.snackBar.open("Simulazione Errore", "Errors", { duration: 2000 });
-
+        
         this.dialog.open(HttpSpinnerComponent);
 
         var skip: number = this.rowsOnPage * (this.activePage - 1);
