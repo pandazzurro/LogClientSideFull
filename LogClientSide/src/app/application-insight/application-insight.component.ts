@@ -9,6 +9,7 @@ import { PaginationData } from '../Models/PaginationData';
 import { HttpSpinnerComponent } from '../http-spinner/http-spinner.component';
 import { FileDropDirective, FileUploader, FileItem, ParsedResponseHeaders } from 'ng2-file-upload';
 import { UserService } from '../user.service';
+import { environment } from '../../environments/environment';
 
 @Component({
     selector: 'app-application-insight',
@@ -36,7 +37,8 @@ export class ApplicationInsightComponent implements OnInit  {
 
     constructor(private _productService: ProductServiceApplicationInsight, private _userService: UserService, public dialog: MdDialog) {
         this.startPage = Date.now();
-        AppInsights.downloadAndSetup({ instrumentationKey: "bfa641ff-5360-49c0-bc5c-0289900aa05e" });
+        let config = { instrumentationKey: environment.APPINSIGHTS_INSTRUMENTATIONKEY }
+        AppInsights.downloadAndSetup(config);
         this.uploader = new FileUploader({ url: "/api/upload", disableMultipart: false });
         this.uploader.onAfterAddingFile = this.onAfterAddingFile.bind(this);
         this.uploader.onBeforeUploadItem = this.onBeforeUploadItem.bind(this);
@@ -64,7 +66,7 @@ export class ApplicationInsightComponent implements OnInit  {
         AppInsights.startTrackEvent("CaricamentoProdotti");
         this.loadProducts +=1;
 
-        AppInsights.trackMetric("loadProductData", null, this.loadProducts, null, null, { "user" : JSON.stringify(this._userService) });
+        AppInsights.trackMetric("loadProductData", 1, this.loadProducts, null, null, { "user" : JSON.stringify(this._userService) });
         
         this.dialog.open(HttpSpinnerComponent);
         let startDate = Date.now();
@@ -135,7 +137,7 @@ export class ApplicationInsightComponent implements OnInit  {
             { "duration" : this.stopUpload - this.startUpload, "loadCounter" : this.loadFiles }
         ); 
 
-        AppInsights.trackMetric("loadFileCounter", null, this.loadFiles, null, null, 
+        AppInsights.trackMetric("loadFileCounter", 1, this.loadFiles, null, null, 
         { 
             "duration" : (this.stopUpload - this.startUpload).toString(), 
             "loadCounter" : this.loadFiles.toString()

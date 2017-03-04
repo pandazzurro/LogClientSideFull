@@ -17,7 +17,7 @@ webpackEmptyContext.id = 1237;
 /***/ 1238:
 /***/ function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(626);
+module.exports = __webpack_require__(627);
 
 
 /***/ },
@@ -164,7 +164,7 @@ var JSLoggerService = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map__ = __webpack_require__(76);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__Models_PaginationData__ = __webpack_require__(193);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_applicationinsights_js__ = __webpack_require__(492);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_applicationinsights_js__ = __webpack_require__(493);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_applicationinsights_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_applicationinsights_js__);
 /* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return ProductServiceApplicationInsight; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -310,7 +310,24 @@ var ProductService = (function () {
 
 /***/ },
 
-/***/ 625:
+/***/ 489:
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return environment; });
+// The file contents for the current environment will overwrite these during build.
+// The build system defaults to the dev environment which uses `environment.ts`, but if you do
+// `ng build --env=prod` then `environment.prod.ts` will be used instead.
+// The list of which env maps to which file can be found in `angular-cli.json`.
+var environment = {
+    production: false,
+    APPINSIGHTS_INSTRUMENTATIONKEY: "bfa641ff-5360-49c0-bc5c-0289900aa05e"
+};
+//# sourceMappingURL=E:/Progetti/GitHub/LogClientSideFull/LogClientSide/src/environment.js.map
+
+/***/ },
+
+/***/ 626:
 /***/ function(module, exports) {
 
 function webpackEmptyContext(req) {
@@ -319,21 +336,21 @@ function webpackEmptyContext(req) {
 webpackEmptyContext.keys = function() { return []; };
 webpackEmptyContext.resolve = webpackEmptyContext;
 module.exports = webpackEmptyContext;
-webpackEmptyContext.id = 625;
+webpackEmptyContext.id = 626;
 
 
 /***/ },
 
-/***/ 626:
+/***/ 627:
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__polyfills_ts__ = __webpack_require__(791);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__polyfills_ts___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__polyfills_ts__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dynamic__ = __webpack_require__(755);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dynamic__ = __webpack_require__(756);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__environments_environment__ = __webpack_require__(790);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_app_module__ = __webpack_require__(786);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__environments_environment__ = __webpack_require__(489);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_app_module__ = __webpack_require__(787);
 
 
 
@@ -347,7 +364,7 @@ __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dyna
 
 /***/ },
 
-/***/ 785:
+/***/ 786:
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -382,7 +399,7 @@ var AppComponent = (function () {
 
 /***/ },
 
-/***/ 786:
+/***/ 787:
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -391,14 +408,14 @@ var AppComponent = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(17);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(128);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_material__ = __webpack_require__(274);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_router__ = __webpack_require__(775);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_router__ = __webpack_require__(776);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_ng2_bootstrap__ = __webpack_require__(955);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_angular2_serverpagination_datatable__ = __webpack_require__(792);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_angular2_serverpagination_datatable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_angular2_serverpagination_datatable__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__app_component__ = __webpack_require__(785);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__application_insight_application_insight_component__ = __webpack_require__(787);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__jsnlog_jsnlog_component__ = __webpack_require__(788);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__user_user_component__ = __webpack_require__(789);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__app_component__ = __webpack_require__(786);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__application_insight_application_insight_component__ = __webpack_require__(788);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__jsnlog_jsnlog_component__ = __webpack_require__(789);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__user_user_component__ = __webpack_require__(790);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__jslogger_service__ = __webpack_require__(292);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__product_service__ = __webpack_require__(488);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__product_application_insight_service__ = __webpack_require__(487);
@@ -476,12 +493,12 @@ var AppModule = (function () {
 
 /***/ },
 
-/***/ 787:
+/***/ 788:
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_applicationinsights_js__ = __webpack_require__(492);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_applicationinsights_js__ = __webpack_require__(493);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_applicationinsights_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_applicationinsights_js__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_material__ = __webpack_require__(274);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__product_application_insight_service__ = __webpack_require__(487);
@@ -490,6 +507,7 @@ var AppModule = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_ng2_file_upload__ = __webpack_require__(333);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_ng2_file_upload___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_ng2_file_upload__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__user_service__ = __webpack_require__(194);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__environments_environment__ = __webpack_require__(489);
 /* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return ApplicationInsightComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -500,6 +518,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+
 
 
 
@@ -523,7 +542,8 @@ var ApplicationInsightComponent = (function () {
         this.hasBaseDropZoneOver = false;
         this.hasAnotherDropZoneOver = false;
         this.startPage = Date.now();
-        __WEBPACK_IMPORTED_MODULE_1_applicationinsights_js__["AppInsights"].downloadAndSetup({ instrumentationKey: "bfa641ff-5360-49c0-bc5c-0289900aa05e" });
+        var config = { instrumentationKey: __WEBPACK_IMPORTED_MODULE_8__environments_environment__["a" /* environment */].APPINSIGHTS_INSTRUMENTATIONKEY };
+        __WEBPACK_IMPORTED_MODULE_1_applicationinsights_js__["AppInsights"].downloadAndSetup(config);
         this.uploader = new __WEBPACK_IMPORTED_MODULE_6_ng2_file_upload__["FileUploader"]({ url: "/api/upload", disableMultipart: false });
         this.uploader.onAfterAddingFile = this.onAfterAddingFile.bind(this);
         this.uploader.onBeforeUploadItem = this.onBeforeUploadItem.bind(this);
@@ -542,7 +562,7 @@ var ApplicationInsightComponent = (function () {
         var _this = this;
         __WEBPACK_IMPORTED_MODULE_1_applicationinsights_js__["AppInsights"].startTrackEvent("CaricamentoProdotti");
         this.loadProducts += 1;
-        __WEBPACK_IMPORTED_MODULE_1_applicationinsights_js__["AppInsights"].trackMetric("loadProductData", null, this.loadProducts, null, null, { "user": JSON.stringify(this._userService) });
+        __WEBPACK_IMPORTED_MODULE_1_applicationinsights_js__["AppInsights"].trackMetric("loadProductData", 1, this.loadProducts, null, null, { "user": JSON.stringify(this._userService) });
         this.dialog.open(__WEBPACK_IMPORTED_MODULE_5__http_spinner_http_spinner_component__["a" /* HttpSpinnerComponent */]);
         var startDate = Date.now();
         var skip = this.rowsOnPage * (this.activePage - 1);
@@ -589,7 +609,7 @@ var ApplicationInsightComponent = (function () {
         this.stopUpload = Date.now();
         __WEBPACK_IMPORTED_MODULE_1_applicationinsights_js__["AppInsights"].trackEvent(fileItem.file.name);
         __WEBPACK_IMPORTED_MODULE_1_applicationinsights_js__["AppInsights"].trackEvent("loadFileComplete", { "user": JSON.stringify(this._userService) }, { "duration": this.stopUpload - this.startUpload, "loadCounter": this.loadFiles });
-        __WEBPACK_IMPORTED_MODULE_1_applicationinsights_js__["AppInsights"].trackMetric("loadFileCounter", null, this.loadFiles, null, null, {
+        __WEBPACK_IMPORTED_MODULE_1_applicationinsights_js__["AppInsights"].trackMetric("loadFileCounter", 1, this.loadFiles, null, null, {
             "duration": (this.stopUpload - this.startUpload).toString(),
             "loadCounter": this.loadFiles.toString()
         });
@@ -636,7 +656,7 @@ var ApplicationInsightComponent = (function () {
 
 /***/ },
 
-/***/ 788:
+/***/ 789:
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -793,7 +813,7 @@ var JSNlogComponent = (function () {
 
 /***/ },
 
-/***/ 789:
+/***/ 790:
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -837,22 +857,6 @@ var UserComponent = (function () {
     var _a;
 }());
 //# sourceMappingURL=E:/Progetti/GitHub/LogClientSideFull/LogClientSide/src/user.component.js.map
-
-/***/ },
-
-/***/ 790:
-/***/ function(module, exports, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return environment; });
-// The file contents for the current environment will overwrite these during build.
-// The build system defaults to the dev environment which uses `environment.ts`, but if you do
-// `ng build --env=prod` then `environment.prod.ts` will be used instead.
-// The list of which env maps to which file can be found in `angular-cli.json`.
-var environment = {
-    production: false
-};
-//# sourceMappingURL=E:/Progetti/GitHub/LogClientSideFull/LogClientSide/src/environment.js.map
 
 /***/ },
 
