@@ -7,7 +7,6 @@ import { UserService } from '../user.service';
   styleUrls: ['./user.component.css']
 })
 export class UserComponent implements OnInit {
-  public Sesso: string;
   constructor(public UserService : UserService) {
     UserService.Language = "Italiano";
     UserService.Username = "Andrea";
