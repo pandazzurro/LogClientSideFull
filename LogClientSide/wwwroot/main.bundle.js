@@ -552,6 +552,8 @@ var ApplicationInsightComponent = (function () {
     }
     ApplicationInsightComponent.prototype.ngOnInit = function () {
         this.stopPage = Date.now();
+        var timeToLoad = (this.stopPage - this.startPage);
+        __WEBPACK_IMPORTED_MODULE_1_applicationinsights_js__["AppInsights"].trackMetric("loadPageMetric", timeToLoad);
         __WEBPACK_IMPORTED_MODULE_1_applicationinsights_js__["AppInsights"].startTrackPage("application-insight");
         __WEBPACK_IMPORTED_MODULE_1_applicationinsights_js__["AppInsights"].trackPageView("ApplicationInsightComponent", /*nome della pagina */ "application-insight", /*url della pagina */ { nomeFunzione: "pageView", nomeComponents: "ApplicationInsightComponent", user: JSON.stringify(this._userService) }, /* (optional) proprieta evento */ { numeroEccezioniSessioneCorrente: this.counterException }, /* (optional) dizionario di metriche */ this.stopPage - this.startPage);
         __WEBPACK_IMPORTED_MODULE_1_applicationinsights_js__["AppInsights"].setAuthenticatedUserContext(this._userService.Username);
@@ -985,7 +987,7 @@ module.exports = "<style>\r\n    .my-drop-zone {\r\n        border: dotted 3px l
 /***/ 984:
 /***/ function(module, exports) {
 
-module.exports = "<md-card>\n  <md-card-title>Imposta dati utente</md-card-title>\n  <md-card-subtitle>I dati dell'utente verranno utilizzati per tracciare i log del sistema</md-card-subtitle>\n  <md-card-content>\n    <div class=\"row\">\n      <div class=\"col-xs-6 col-sm-6 col-md-6 col-lg-6\">\n        <div class=\"text-center\">\n          <md-input-container>\n            <input md-input placeholder=\"Username\" [(ngModel)]=\"UserService.Username\">\n          </md-input-container>\n        </div>\n      </div>\n      <div class=\"col-xs-6 col-sm-6 col-md-6 col-lg-6\">\n        <div class=\"text-center\">\n          <md-slide-toggle ng-checked=\"UserService.Language == 'Italiano'\" (change)=\"changeLanguage()\">{{UserService.Language}}</md-slide-toggle>\n        </div>\n      </div>\n    </div>\n  </md-card-content>\n</md-card>"
+module.exports = "<md-card>\r\n  <md-card-title>Imposta dati utente</md-card-title>\r\n  <md-card-subtitle>I dati dell'utente verranno utilizzati per tracciare i log del sistema</md-card-subtitle>\r\n  <md-card-content>\r\n    <div class=\"row\">\r\n      <div class=\"col-xs-6 col-sm-6 col-md-6 col-lg-6\">\r\n        <div class=\"text-center\">\r\n          <md-input-container>\r\n            <input md-input placeholder=\"Username\" [(ngModel)]=\"UserService.Username\">\r\n          </md-input-container>\r\n        </div>\r\n      </div>\r\n      <div class=\"col-xs-6 col-sm-6 col-md-6 col-lg-6\">\r\n        <div class=\"text-center\">\r\n          <md-slide-toggle ng-checked=\"UserService.Language == 'Italiano'\" (change)=\"changeLanguage()\">{{UserService.Language}}</md-slide-toggle>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </md-card-content>\r\n</md-card>\r\n"
 
 /***/ }
 

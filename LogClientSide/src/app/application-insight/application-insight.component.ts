@@ -43,11 +43,16 @@ export class ApplicationInsightComponent implements OnInit  {
         this.uploader.onAfterAddingFile = this.onAfterAddingFile.bind(this);
         this.uploader.onBeforeUploadItem = this.onBeforeUploadItem.bind(this);
         this.uploader.onErrorItem = this.onErrorItem.bind(this);
-        this.uploader.onCompleteItem = this.onCompleteItem.bind(this);        
+        this.uploader.onCompleteItem = this.onCompleteItem.bind(this);       
+
+        
     }
 
     ngOnInit() {
-        this.stopPage = Date.now();
+        this.stopPage = Date.now();        
+        let timeToLoad : number = (this.stopPage - this.startPage);    
+        AppInsights.trackMetric("loadPageMetric", timeToLoad);
+                
         AppInsights.startTrackPage("application-insight");
         AppInsights.trackPageView(
             "ApplicationInsightComponent", /*nome della pagina */
@@ -57,7 +62,6 @@ export class ApplicationInsightComponent implements OnInit  {
             this.stopPage - this.startPage          
         );
         AppInsights.setAuthenticatedUserContext(this._userService.Username);
-
         //Per vederla subito su portale
         AppInsights.flush();        
     }
