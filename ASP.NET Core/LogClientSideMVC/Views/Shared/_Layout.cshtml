@@ -1,4 +1,6 @@
 ﻿@inject Microsoft.ApplicationInsights.AspNetCore.JavaScriptSnippet JavaScriptSnippet
+@using Microsoft.ApplicationInsights
+@using Microsoft.ApplicationInsights.DataContracts
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,6 +22,18 @@
     @Html.Raw(JavaScriptSnippet.FullScript)
 </head>
 <body>
+    @{ 
+//TelemetryClient telemetry = new TelemetryClient();
+////PageViewTelemetry pageView = new PageViewTelemetry();
+////pageView.Duration = TimeSpan.FromMilliseconds(1000);
+//telemetry.TrackPageView("Home");
+//telemetry.Flush();
+    }
+    <script type="text/javascript">
+        console.log("track");
+        appInsights.trackTrace("WinGame");
+        appInsights.trackPageView("tab1");
+    </script>
     <jl-javascript-logger-definitions />
     <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">

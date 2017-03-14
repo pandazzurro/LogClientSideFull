@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using JSNLog;
+//using JSNLog;
 
 namespace LogClientSideMVC
 {
@@ -21,6 +21,11 @@ namespace LogClientSideMVC
                 .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
                 .AddEnvironmentVariables();
             Configuration = builder.Build();
+
+            if (env.IsDevelopment())
+            {
+                builder.AddApplicationInsightsSettings(developerMode: true);
+            }
         }
 
         public IConfigurationRoot Configuration { get; }
@@ -30,6 +35,7 @@ namespace LogClientSideMVC
         {
             // Add framework services.
             services.AddMvc();
+            services.AddApplicationInsightsTelemetry(Configuration);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -47,8 +53,8 @@ namespace LogClientSideMVC
             {
                 app.UseExceptionHandler("/Home/Error");
             }
-            var jsnlogConfiguration = new JsnlogConfiguration();
-            app.UseJSNLog(new LoggingAdapter(loggerFactory), jsnlogConfiguration);
+            //var jsnlogConfiguration = new JsnlogConfiguration();
+            //app.UseJSNLog(new LoggingAdapter(loggerFactory), jsnlogConfiguration);
 
             app.UseStaticFiles();
 
