@@ -8,6 +8,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using JSNLog;
+using Microsoft.WindowsAzure.Storage;
+using Serilog;
 
 namespace LogClientSideMVC
 {
@@ -15,6 +17,7 @@ namespace LogClientSideMVC
     {
         public Startup(IHostingEnvironment env)
         {
+            ConfigureSerilog();
             var builder = new ConfigurationBuilder();
             if (env.IsDevelopment())
             {
@@ -36,10 +39,19 @@ namespace LogClientSideMVC
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory, IApplicationLifetime applicationLifetime)
         {
-            loggerFactory.AddConsole(Configuration.GetSection("Logging"));
-            loggerFactory.AddDebug();
+            // Disabilito il livelli di log di default dell'infrastruttura
+            loggerFactory = new LoggerFactory();
+            // Serilog
+            loggerFactory.AddSerilog(Log.Logger, false);
+            applicationLifetime.ApplicationStopped.Register(Log.CloseAndFlush);
+            // Configure JSNLog
+            JsnlogConfiguration jsnlogConfiguration = new JsnlogConfiguration
+            {
+                corsAllowedOriginsRegex = ".*"
+            };
+            app.UseJSNLog(new LoggingAdapter(loggerFactory), jsnlogConfiguration);
 
             if (env.IsDevelopment())
             {
@@ -50,10 +62,7 @@ namespace LogClientSideMVC
             {
                 app.UseExceptionHandler("/Home/Error");
             }
-
-            var jsnlogConfiguration = new JsnlogConfiguration();
-            app.UseJSNLog(new LoggingAdapter(loggerFactory), jsnlogConfiguration);
-
+            
             app.UseStaticFiles();
 
             app.UseMvc(routes =>
@@ -62,6 +71,16 @@ namespace LogClientSideMVC
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
+        }
+
+        public void ConfigureSerilog()
+        {
+            CloudStorageAccount storageAccount = CloudStorageAccount.Parse("UseDevelopmentStorage=true");
+            Log.Logger = new LoggerConfiguration()
+                .Destructure.ToMaximumDepth(10)
+                .MinimumLevel.Is(Serilog.Events.LogEventLevel.Verbose)
+                .WriteTo.AzureTableStorage(storageAccount, Serilog.Events.LogEventLevel.Verbose, period: TimeSpan.FromSeconds(2), storageTableName: "CoreloggerMVC", writeInBatches: true)
+                .CreateLogger();
         }
     }
 }
