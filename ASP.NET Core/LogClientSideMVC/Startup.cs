@@ -10,6 +10,8 @@ using Microsoft.Extensions.Logging;
 using JSNLog;
 using Microsoft.WindowsAzure.Storage;
 using Serilog;
+using Serilog.Formatting.Json;
+using Serilog.Events;
 
 namespace LogClientSideMVC
 {
@@ -49,7 +51,8 @@ namespace LogClientSideMVC
             // Configure JSNLog
             JsnlogConfiguration jsnlogConfiguration = new JsnlogConfiguration
             {
-                corsAllowedOriginsRegex = ".*"
+                corsAllowedOriginsRegex = ".*",
+                serverSideMessageFormat = "{ 'requestId': '%requestId', 'clientdate': '%date', 'url': '%url', 'logmessage': %jsonmessage }"
             };
             app.UseJSNLog(new LoggingAdapter(loggerFactory), jsnlogConfiguration);
 
@@ -79,8 +82,20 @@ namespace LogClientSideMVC
             Log.Logger = new LoggerConfiguration()
                 .Destructure.ToMaximumDepth(10)
                 .MinimumLevel.Is(Serilog.Events.LogEventLevel.Verbose)
+                .WriteTo.Sink<TestSink>()
+                .WriteTo.RollingFile("log.txt")
                 .WriteTo.AzureTableStorage(storageAccount, Serilog.Events.LogEventLevel.Verbose, period: TimeSpan.FromSeconds(2), storageTableName: "CoreloggerMVC", writeInBatches: true)
                 .CreateLogger();
+        }
+    }
+
+    public class TestSink : Serilog.Core.ILogEventSink
+    {
+        public void Emit(LogEvent logEvent)
+        {
+
+            var l = logEvent;
+
         }
     }
 }

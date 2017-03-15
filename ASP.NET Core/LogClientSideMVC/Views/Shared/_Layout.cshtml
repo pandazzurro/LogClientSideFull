@@ -18,21 +18,23 @@
               asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
         <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
     </environment>
-    @*<script src="~/lib/jsnlog/jsnlog.min.js"></script>*@
+    <jl-javascript-logger-definitions />
+    <script src="~/lib/jsnlog.js/jsnlog.min.js"></script>
     @Html.Raw(JavaScriptSnippet.FullScript)
 </head>
 <body>
-    <jl-javascript-logger-definitions />
     @{ 
-//TelemetryClient telemetry = new TelemetryClient();
-////PageViewTelemetry pageView = new PageViewTelemetry();
-////pageView.Duration = TimeSpan.FromMilliseconds(1000);
-//telemetry.TrackPageView("Home");
-//telemetry.Flush();
+        //TelemetryClient telemetry = new TelemetryClient();
+        ////PageViewTelemetry pageView = new PageViewTelemetry();
+        ////pageView.Duration = TimeSpan.FromMilliseconds(1000);
+        //telemetry.TrackPageView("Home");
+        //telemetry.Flush();
     }
     <script type="text/javascript">
         // Traccio la pagina
         appInsights.trackTrace("MyPage");
+        JL().info("Start");
+        JL().trace("MyNewLogEvent to trace");
     </script>
 
     <nav class="navbar navbar-inverse navbar-fixed-top">
