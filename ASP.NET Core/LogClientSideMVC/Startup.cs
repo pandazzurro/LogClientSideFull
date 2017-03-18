@@ -83,8 +83,8 @@ namespace LogClientSideMVC
                 .Destructure.ToMaximumDepth(10)
                 .MinimumLevel.Is(Serilog.Events.LogEventLevel.Verbose)
                 .WriteTo.Email(new EmailConnectionInfo {
-                    MailServer = "smtp.live.com", FromEmail = "andrea.tosato@hotmail.it", ToEmail = "andrea.tosato@hotmail.it",
-                    NetworkCredentials = new System.Net.NetworkCredential("andrea.tosato@hotmail.it", "azzurro1986")}
+                    MailServer = "smtp.live.com", FromEmail = "xxx@hotmail.it", ToEmail = "xxx@hotmail.it",
+                    NetworkCredentials = new System.Net.NetworkCredential("xxx@hotmail.it", "xxx")}
                 , restrictedToMinimumLevel: LogEventLevel.Fatal)
                 .WriteTo.RollingFile("log.txt")
                 .WriteTo.AzureTableStorage(storageAccount, LogEventLevel.Verbose, period: TimeSpan.FromSeconds(2), storageTableName: "CoreloggerMVC", writeInBatches: true)

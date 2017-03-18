@@ -32,27 +32,10 @@
     <script type="text/javascript">
         // Traccio la pagina
         appInsights.trackTrace("MyPage");
+        // Imposto il serializzatore per l'intera applicazione
         JL.serialize = function (value) {
             return JSON.stringify(value).replace(/"/g, "\\'")
         }
-
-        var myObject = {};
-        myObject.nome = "mioNome";
-        myObject.cognome = "mioCognome";
-        myObject.linguaPreferita = "it-IT";
-        myObject.carrello = [
-            { nomeProdotto: "ProdottoA", idProdotto: 2345 },
-            { nomeProdotto: "ProdottoB", idProdotto: 3498 },
-            { nomeProdotto: "ProdottoC", idProdotto: 12673 }
-        ]
-
-        JL('mio').setOptions({ level: 1000 });
-        JL('mio').setOptions
-        JL('mio').debug(myObject);
-
-        JL().info("Start");
-        JL().debug(myObject);
-        JL().trace("MyNewLogEvent to trace");
     </script>
 
     <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -69,8 +52,6 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
                 </ul>
             </div>
         </div>
