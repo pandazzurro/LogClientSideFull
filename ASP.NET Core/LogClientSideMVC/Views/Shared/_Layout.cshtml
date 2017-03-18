@@ -18,7 +18,6 @@
               asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
         <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
     </environment>
-    <jl-javascript-logger-definitions />
     <script src="~/lib/jsnlog.js/jsnlog.min.js"></script>
     @Html.Raw(JavaScriptSnippet.FullScript)
 </head>
@@ -33,7 +32,26 @@
     <script type="text/javascript">
         // Traccio la pagina
         appInsights.trackTrace("MyPage");
+        JL.serialize = function (value) {
+            return JSON.stringify(value).replace(/"/g, "\\'")
+        }
+
+        var myObject = {};
+        myObject.nome = "mioNome";
+        myObject.cognome = "mioCognome";
+        myObject.linguaPreferita = "it-IT";
+        myObject.carrello = [
+            { nomeProdotto: "ProdottoA", idProdotto: 2345 },
+            { nomeProdotto: "ProdottoB", idProdotto: 3498 },
+            { nomeProdotto: "ProdottoC", idProdotto: 12673 }
+        ]
+
+        JL('mio').setOptions({ level: 1000 });
+        JL('mio').setOptions
+        JL('mio').debug(myObject);
+
         JL().info("Start");
+        JL().debug(myObject);
         JL().trace("MyNewLogEvent to trace");
     </script>
 

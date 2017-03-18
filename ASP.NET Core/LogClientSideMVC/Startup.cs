@@ -12,6 +12,7 @@ using Microsoft.WindowsAzure.Storage;
 using Serilog;
 using Serilog.Formatting.Json;
 using Serilog.Events;
+using Serilog.Sinks.Email;
 
 namespace LogClientSideMVC
 {
@@ -51,8 +52,7 @@ namespace LogClientSideMVC
             // Configure JSNLog
             JsnlogConfiguration jsnlogConfiguration = new JsnlogConfiguration
             {
-                corsAllowedOriginsRegex = ".*",
-                serverSideMessageFormat = "{ 'requestId': '%requestId', 'clientdate': '%date', 'url': '%url', 'logmessage': %jsonmessage }"
+                corsAllowedOriginsRegex = ".*"
             };
             app.UseJSNLog(new LoggingAdapter(loggerFactory), jsnlogConfiguration);
 
@@ -82,20 +82,13 @@ namespace LogClientSideMVC
             Log.Logger = new LoggerConfiguration()
                 .Destructure.ToMaximumDepth(10)
                 .MinimumLevel.Is(Serilog.Events.LogEventLevel.Verbose)
-                .WriteTo.Sink<TestSink>()
+                .WriteTo.Email(new EmailConnectionInfo {
+                    MailServer = "smtp.live.com", FromEmail = "andrea.tosato@hotmail.it", ToEmail = "andrea.tosato@hotmail.it",
+                    NetworkCredentials = new System.Net.NetworkCredential("andrea.tosato@hotmail.it", "azzurro1986")}
+                , restrictedToMinimumLevel: LogEventLevel.Fatal)
                 .WriteTo.RollingFile("log.txt")
-                .WriteTo.AzureTableStorage(storageAccount, Serilog.Events.LogEventLevel.Verbose, period: TimeSpan.FromSeconds(2), storageTableName: "CoreloggerMVC", writeInBatches: true)
+                .WriteTo.AzureTableStorage(storageAccount, LogEventLevel.Verbose, period: TimeSpan.FromSeconds(2), storageTableName: "CoreloggerMVC", writeInBatches: true)
                 .CreateLogger();
-        }
-    }
-
-    public class TestSink : Serilog.Core.ILogEventSink
-    {
-        public void Emit(LogEvent logEvent)
-        {
-
-            var l = logEvent;
-
         }
     }
 }

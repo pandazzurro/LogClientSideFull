@@ -242,7 +242,7 @@ var JL;
                         finalString = JL.serialize.call(this, actualLogObject);
                     }
                     else {
-                        finalString = JSON.stringify(actualLogObject);
+                        finalString = JSON.stringify(actualLogObject).replace(/"/g, "\\'");
                     }
                     return new StringifiedLogObject(null, actualLogObject, finalString);
                 }
