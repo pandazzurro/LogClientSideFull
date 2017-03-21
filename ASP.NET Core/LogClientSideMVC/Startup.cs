@@ -52,7 +52,9 @@ namespace LogClientSideMVC
             // Configure JSNLog
             JsnlogConfiguration jsnlogConfiguration = new JsnlogConfiguration
             {
-                corsAllowedOriginsRegex = ".*"
+                
+                corsAllowedOriginsRegex = ".*",
+                serverSideMessageFormat = "Sent: %date, Browser: %userAgent, Message: %message"
             };
             app.UseJSNLog(new LoggingAdapter(loggerFactory), jsnlogConfiguration);
 
