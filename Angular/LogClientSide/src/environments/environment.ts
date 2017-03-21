@@ -5,5 +5,5 @@
 
 export const environment = {
   production: false,
-  APPINSIGHTS_INSTRUMENTATIONKEY : "bfa641ff-5360-49c0-bc5c-0289900aa05e"
+  APPINSIGHTS_INSTRUMENTATIONKEY : "xxxxx-5360-49c0-bc5c-0289900aa05e"
 };
